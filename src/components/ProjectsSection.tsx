@@ -1,6 +1,9 @@
 import { ExternalLink, Github, Shield, Brain, Users } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const ProjectsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const projects = [
     {
       title: 'PhishGuard AI',
@@ -31,7 +34,12 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 md:py-32 bg-card/50">
       <div className="container px-6">
-        <div className="max-w-6xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {/* Header */}
           <div className="mb-16">
             <p className="section-subheading">Projects</p>
@@ -40,8 +48,12 @@ const ProjectsSection = () => {
 
           {/* Projects grid */}
           <div className="grid md:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <div key={project.title} className="card-elevated p-6 flex flex-col">
+            {projects.map((project, index) => (
+              <div 
+                key={project.title} 
+                className="card-elevated p-6 flex flex-col"
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <project.icon className="w-6 h-6 text-primary" />
