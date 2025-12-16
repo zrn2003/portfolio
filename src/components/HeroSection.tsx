@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -39,6 +39,14 @@ const HeroSection = () => {
               </a>
               <a href="#contact" className="btn-outline text-center">
                 Get In Touch
+              </a>
+              <a 
+                href="/Zishan_Nadaf_Resume.pdf" 
+                download
+                className="btn-outline text-center inline-flex items-center justify-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                Download CV
               </a>
             </div>
 

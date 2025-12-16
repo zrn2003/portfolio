@@ -1,6 +1,9 @@
 import { GraduationCap } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const EducationSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const education = [
     {
       degree: 'Bachelor of Technology',
@@ -31,7 +34,12 @@ const EducationSection = () => {
   return (
     <section id="education" className="py-24 md:py-32">
       <div className="container px-6">
-        <div className="max-w-4xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-4xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {/* Header */}
           <div className="mb-16">
             <p className="section-subheading">Education</p>
@@ -40,8 +48,12 @@ const EducationSection = () => {
 
           {/* Education cards */}
           <div className="space-y-4">
-            {education.map((edu) => (
-              <div key={edu.institution} className="card-elevated p-6">
+            {education.map((edu, index) => (
+              <div 
+                key={edu.institution} 
+                className="card-elevated p-6"
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
                 <div className="flex gap-5">
                   <div className={`flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center ${
                     edu.current ? 'bg-primary/10' : 'bg-muted'

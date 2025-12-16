@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { toast } from 'sonner';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const ContactSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +22,12 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 md:py-32 bg-card/50">
       <div className="container px-6">
-        <div className="max-w-5xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-5xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {/* Header */}
           <div className="text-center mb-16">
             <p className="section-subheading">Contact</p>

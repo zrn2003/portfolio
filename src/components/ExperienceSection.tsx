@@ -1,6 +1,9 @@
 import { MapPin } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const ExperienceSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const experiences = [
     {
       title: 'Trainee Developer',
@@ -40,7 +43,12 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24 md:py-32">
       <div className="container px-6">
-        <div className="max-w-4xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-4xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {/* Header */}
           <div className="mb-16">
             <p className="section-subheading">Experience</p>
@@ -54,7 +62,11 @@ const ExperienceSection = () => {
 
             <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <div key={exp.title} className="relative pl-10">
+                <div 
+                  key={exp.title} 
+                  className="relative pl-10"
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
                   {/* Timeline dot */}
                   <div className="absolute left-0 top-2 timeline-dot" />
 

@@ -1,4 +1,8 @@
+import useScrollAnimation from '@/hooks/use-scroll-animation';
+
 const SkillsSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const skillCategories = [
     {
       title: 'Languages',
@@ -48,7 +52,12 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 md:py-32 bg-card/50">
       <div className="container px-6">
-        <div className="max-w-6xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {/* Header */}
           <div className="mb-16">
             <p className="section-subheading">Skills</p>
@@ -57,8 +66,12 @@ const SkillsSection = () => {
 
           {/* Skills grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {skillCategories.map((category) => (
-              <div key={category.title} className="card-elevated p-6">
+            {skillCategories.map((category, index) => (
+              <div 
+                key={category.title} 
+                className="card-elevated p-6"
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
                 <h3 className="font-sora font-semibold text-lg mb-6 text-foreground">
                   {category.title}
                 </h3>
@@ -70,7 +83,10 @@ const SkillsSection = () => {
                         <span className="text-sm text-muted-foreground">{skill.level}%</span>
                       </div>
                       <div className="progress-bar">
-                        <div className="progress-fill" style={{ width: `${skill.level}%` }} />
+                        <div 
+                          className="progress-fill" 
+                          style={{ width: isVisible ? `${skill.level}%` : '0%' }} 
+                        />
                       </div>
                     </div>
                   ))}

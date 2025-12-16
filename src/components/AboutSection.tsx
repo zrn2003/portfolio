@@ -1,6 +1,9 @@
 import { Code2, Database, Shield, Brain } from 'lucide-react';
+import useScrollAnimation from '@/hooks/use-scroll-animation';
 
 const AboutSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   const expertise = [
     { icon: Code2, title: 'Full-Stack Development', desc: 'React, Node.js, modern frameworks' },
     { icon: Brain, title: 'AI & Machine Learning', desc: 'CNN models, data science' },
@@ -11,7 +14,12 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24 md:py-32">
       <div className="container px-6">
-        <div className="max-w-6xl mx-auto">
+        <div 
+          ref={ref}
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {/* Header */}
           <div className="mb-16">
             <p className="section-subheading">About Me</p>
@@ -54,8 +62,12 @@ const AboutSection = () => {
 
             {/* Expertise cards */}
             <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              {expertise.map((item) => (
-                <div key={item.title} className="card-elevated p-5">
+              {expertise.map((item, index) => (
+                <div 
+                  key={item.title} 
+                  className="card-elevated p-5"
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
                   <item.icon className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
                   <p className="text-xs text-muted-foreground">{item.desc}</p>
