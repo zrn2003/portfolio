@@ -4,144 +4,80 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: 'PhishGuard AI',
-      subtitle: 'Cybersecurity & Threat Detection System',
+      subtitle: 'Cybersecurity & Threat Detection',
       period: 'Jun 2025 – Jul 2025',
-      description: 'Real-time web-based phishing URL detection platform utilizing Machine Learning algorithms for comprehensive threat analysis and classification.',
-      highlights: [
-        'ML-powered threat detection',
-        'Automated feature extraction',
-        'Real-time risk scoring',
-        'Threat intelligence reporting',
-      ],
+      description: 'Real-time phishing URL detection platform using Machine Learning for comprehensive threat analysis.',
       tech: ['Python', 'Machine Learning', 'Web Security', 'API'],
       icon: Shield,
-      gradient: 'from-red-500/20 to-orange-500/20',
-      borderColor: 'border-red-500/30',
-      iconBg: 'bg-red-500/10',
-      iconColor: 'text-red-400',
     },
     {
       title: 'SkinSight',
-      subtitle: 'AI-Powered Classification System',
+      subtitle: 'AI-Powered Classification',
       period: 'Jul 2025 – Present',
-      description: 'AI-powered detection system using CNN-based deep learning models and advanced image processing techniques for accurate classification.',
-      highlights: [
-        'CNN deep learning models',
-        'Image processing',
-        'Real-time predictions',
-        'Preventive recommendations',
-      ],
+      description: 'AI detection system using CNN-based deep learning for accurate classification and identification.',
       tech: ['Python', 'TensorFlow', 'CNN', 'Web Interface'],
       icon: Brain,
-      gradient: 'from-purple-500/20 to-pink-500/20',
-      borderColor: 'border-purple-500/30',
-      iconBg: 'bg-purple-500/10',
-      iconColor: 'text-purple-400',
     },
     {
-      title: 'Smart School Attendance',
-      subtitle: 'Authentication & Enrollment System',
+      title: 'Smart Attendance System',
+      subtitle: 'Authentication & Enrollment',
       period: 'Mar 2025 – Apr 2025',
-      description: 'Comprehensive Smart Attendance Dashboard using ReactJS, Node.js, and SQL Server for automated enrollment tracking and secure authentication.',
-      highlights: [
-        'Secure authentication',
-        'Real-time notifications',
-        'Analytics reporting',
-        'Responsive web interface',
-      ],
-      tech: ['ReactJS', 'Node.js', 'SQL Server', 'API Integration'],
+      description: 'Comprehensive dashboard using ReactJS, Node.js, and SQL Server for automated tracking.',
+      tech: ['ReactJS', 'Node.js', 'SQL Server', 'API'],
       icon: Users,
-      gradient: 'from-cyan-500/20 to-blue-500/20',
-      borderColor: 'border-cyan-500/30',
-      iconBg: 'bg-cyan-500/10',
-      iconColor: 'text-cyan-400',
     },
   ];
 
   return (
-    <section id="projects" className="relative py-32 overflow-hidden">
+    <section id="projects" className="py-24 md:py-32 bg-card/50">
       <div className="container px-6">
-        {/* Section header */}
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium tracking-[0.3em] uppercase text-sm">Featured Work</p>
-          <h2 className="section-title">Key Projects</h2>
-        </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="mb-16">
+            <p className="section-subheading">Projects</p>
+            <h2 className="section-heading">Featured Work</h2>
+          </div>
 
-        {/* Projects grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className={`group relative glass-card overflow-hidden hover-lift ${project.borderColor}`}
-            >
-              {/* Gradient overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              {/* Content */}
-              <div className="relative p-6 space-y-4">
-                {/* Header */}
-                <div className="flex items-start justify-between">
-                  <div className={`w-14 h-14 rounded-xl ${project.iconBg} border ${project.borderColor} flex items-center justify-center`}>
-                    <project.icon className={`w-7 h-7 ${project.iconColor}`} />
+          {/* Projects grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <div key={project.title} className="card-elevated p-6 flex flex-col">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <project.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <span className="text-xs text-muted-foreground font-medium">{project.period}</span>
+                  <span className="text-xs text-muted-foreground">{project.period}</span>
                 </div>
 
-                {/* Title */}
-                <div>
-                  <h3 className="font-orbitron text-xl font-bold text-foreground mb-1">{project.title}</h3>
-                  <p className={`text-sm ${project.iconColor}`}>{project.subtitle}</p>
-                </div>
+                <h3 className="font-sora font-semibold text-lg text-foreground mb-1">{project.title}</h3>
+                <p className="text-sm text-primary mb-3">{project.subtitle}</p>
+                <p className="text-sm text-muted-foreground mb-6 flex-grow">{project.description}</p>
 
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="px-2 py-1 text-xs bg-muted rounded text-muted-foreground">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Highlights */}
-                <ul className="space-y-2">
-                  {project.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-center gap-2 text-sm text-foreground/80">
-                      <span className={`w-1.5 h-1.5 rounded-full ${project.iconColor.replace('text-', 'bg-')}`} />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs bg-background/50 border border-border rounded text-muted-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action buttons */}
-                <div className="flex gap-3 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="flex-1 flex items-center justify-center gap-2 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:text-foreground hover:border-primary transition-all">
-                    <Github className="w-4 h-4" />
-                    Code
-                  </button>
-                  <button className="flex-1 flex items-center justify-center gap-2 py-2 border border-border rounded-lg text-sm text-muted-foreground hover:text-foreground hover:border-primary transition-all">
-                    <ExternalLink className="w-4 h-4" />
-                    Demo
-                  </button>
+                  <div className="flex gap-4 pt-4 border-t border-border">
+                    <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+                      <Github className="w-4 h-4" />
+                      Code
+                    </button>
+                    <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+                      <ExternalLink className="w-4 h-4" />
+                      Demo
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              {/* Corner decoration */}
-              <div className={`absolute -top-10 -right-10 w-20 h-20 ${project.iconColor.replace('text-', 'bg-')}/10 rounded-full blur-2xl`} />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Background elements */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
     </section>
   );
 };
