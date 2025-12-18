@@ -1,16 +1,33 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import useScrollAnimation from '@/hooks/use-scroll-animation';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactSection = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Message sent! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast.success('Message sent! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -118,9 +135,17 @@ const ContactSection = () => {
                     placeholder="Tell me about your project..."
                   />
                 </div>
-                <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2">
-                  <Send className="w-4 h-4" />
-                  Send Message
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
