@@ -196,6 +196,19 @@
     @apply focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50;
     @apply transition-all duration-200;
   }
+
+  /* Bento Grid */
+  .bento-card {
+    @apply relative bg-card border border-border rounded-2xl;
+    @apply transition-all duration-500 ease-out;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .bento-card:hover {
+    @apply border-primary/40;
+    box-shadow: var(--shadow-elevated), 0 0 40px hsl(var(--primary) / 0.1);
+    transform: translateY(-4px) scale(1.02);
+  }
 }
 
 @layer utilities {
