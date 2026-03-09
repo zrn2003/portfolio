@@ -1,5 +1,6 @@
 import { ExternalLink, Github, Shield, Brain, Users } from 'lucide-react';
 import useScrollAnimation from '@/hooks/use-scroll-animation';
+import Tilt from 'react-parallax-tilt';
 
 const ProjectsSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -34,11 +35,10 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 md:py-32 bg-card/50">
       <div className="container px-6">
-        <div 
+        <div
           ref={ref}
-          className={`max-w-6xl mx-auto transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           {/* Header */}
           <div className="mb-16">
@@ -49,42 +49,53 @@ const ProjectsSection = () => {
           {/* Projects grid */}
           <div className="grid md:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <div 
-                key={project.title} 
-                className="card-elevated p-6 flex flex-col"
+              <div
+                key={project.title}
                 style={{ transitionDelay: `${index * 150}ms` }}
+                className="h-full"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <project.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <span className="text-xs text-muted-foreground">{project.period}</span>
-                </div>
-
-                <h3 className="font-sora font-semibold text-lg text-foreground mb-1">{project.title}</h3>
-                <p className="text-sm text-primary mb-3">{project.subtitle}</p>
-                <p className="text-sm text-muted-foreground mb-6 flex-grow">{project.description}</p>
-
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span key={tech} className="px-2 py-1 text-xs bg-muted rounded text-muted-foreground">
-                        {tech}
-                      </span>
-                    ))}
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  scale={1.02}
+                  transitionSpeed={2000}
+                  className="card-elevated p-6 flex flex-col h-full transform-gpu"
+                  glareEnable={true}
+                  glareMaxOpacity={0.15}
+                  glarePosition="all"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20 shadow-[0_0_15px_hsl(var(--primary)/0.2)]">
+                      <project.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">{project.period}</span>
                   </div>
 
-                  <div className="flex gap-4 pt-4 border-t border-border">
-                    <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
-                      <Github className="w-4 h-4" />
-                      Code
-                    </button>
-                    <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                      Demo
-                    </button>
+                  <h3 className="font-sora font-semibold text-lg text-foreground mb-1">{project.title}</h3>
+                  <p className="text-sm text-primary mb-3">{project.subtitle}</p>
+                  <p className="text-sm text-muted-foreground mb-6 flex-grow">{project.description}</p>
+
+                  <div className="space-y-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span key={tech} className="px-2 py-1 text-xs bg-muted border border-border/50 rounded text-muted-foreground">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-4 pt-4 border-t border-border">
+                      <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <Github className="w-4 h-4" />
+                        Code
+                      </button>
+                      <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <ExternalLink className="w-4 h-4" />
+                        Demo
+                      </button>
+                    </div>
                   </div>
-                </div>
+                </Tilt>
               </div>
             ))}
           </div>
