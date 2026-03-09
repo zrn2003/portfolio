@@ -34,8 +34,6 @@ const ContactSection = () => {
 
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'zishanrn2003@gmail.com', href: 'mailto:zishanrn2003@gmail.com' },
-    { icon: Phone, label: 'Phone', value: '+91 9371797604', href: 'tel:+919371797604' },
-    { icon: MapPin, label: 'Location', value: 'Pandharpur, Maharashtra', href: '#' },
   ];
 
   return (
