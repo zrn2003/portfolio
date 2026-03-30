@@ -2,30 +2,26 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="py-12 relative overflow-hidden">
-      {/* Subtle border and background glow */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[100px] bg-primary/10 blur-[80px] pointer-events-none" />
-
+    <footer className="py-12 bg-white relative overflow-hidden border-t-2 border-black">
       <div className="container px-6 relative z-10">
-        <div className="flex flex-col items-center justify-center gap-6">
-          <div className="flex items-center gap-5">
-            <a href="https://github.com/zrn2003" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_hsl(var(--primary)/0.2)]">
-              <Github className="w-5 h-5" />
+        <div className="flex flex-col items-center justify-center gap-8">
+          <div className="flex items-center gap-6">
+            <a href="https://github.com/zrn2003" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#f0f0f0] border-2 border-black flex items-center justify-center text-black hover:bg-[#ffff00] hover:translate-x-[2px] hover:translate-y-[2px] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
+              <Github className="w-6 h-6" />
             </a>
-            <a href="https://linkedin.com/in/zishanrn2003" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/5 hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_rgba(10,102,194,0.2)]">
-              <Linkedin className="w-5 h-5" />
+            <a href="https://linkedin.com/in/zishanrn2003" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#f0f0f0] border-2 border-black flex items-center justify-center text-black hover:bg-[#0A66C2] hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
+              <Linkedin className="w-6 h-6" />
             </a>
-            <a href="mailto:zishanrn2003@gmail.com" className="w-10 h-10 rounded-xl bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 hover:scale-110 transition-all duration-300 hover:shadow-[0_0_15px_hsl(var(--primary)/0.2)]">
-              <Mail className="w-5 h-5" />
+            <a href="mailto:zishanrn2003@gmail.com" className="w-12 h-12 bg-[#f0f0f0] border-2 border-black flex items-center justify-center text-black hover:bg-[#ffff00] hover:translate-x-[2px] hover:translate-y-[2px] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
+              <Mail className="w-6 h-6" />
             </a>
           </div>
 
-          <div className="text-center">
-            <p className="font-sora text-xl font-bold text-foreground drop-shadow-sm flex items-baseline justify-center">
-              Zishan Nadaf<span className="text-primary font-medium leading-none ml-0.5">.</span>
+          <div className="text-center bg-white border-2 border-black p-6 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+            <p className="font-mono text-xl font-black text-black tracking-wider">
+              Zishan Nadaf
             </p>
-            <p className="text-sm font-medium text-muted-foreground mt-2">
+            <p className="text-sm font-bold font-mono text-black mt-2 uppercase">
               © {new Date().getFullYear()} Zishan Nadaf. Crafted with ambition.
             </p>
           </div>

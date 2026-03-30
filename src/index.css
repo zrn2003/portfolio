@@ -5,79 +5,40 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Professional dark theme */
-    --background: 222 47% 6%;
-    --foreground: 210 20% 95%;
+  :root, .dark, .light {
+    --background: 0 0% 96%;
+    --foreground: 0 0% 0%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 20% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Elegant blue primary */
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Warm accent */
-    --secondary: 35 90% 55%;
-    --secondary-foreground: 222 47% 6%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 222 30% 14%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 20%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 30% 16%;
-    --input: 222 30% 14%;
-    --ring: 217 91% 60%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
-    /* Professional tokens */
-    --gradient-subtle: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(35 90% 55% / 0.05));
-    --shadow-soft: 0 4px 20px -4px hsl(222 47% 4% / 0.5);
-    --shadow-elevated: 0 20px 40px -12px hsl(222 47% 4% / 0.6);
-  }
-
-  /* Light theme */
-  .light {
-    --background: 0 0% 98%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 217 91% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 35 90% 50%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-
-    --accent: 217 91% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 14% 96%;
-    --ring: 217 91% 50%;
-
-    --gradient-subtle: linear-gradient(135deg, hsl(217 91% 50% / 0.08), hsl(35 90% 50% / 0.04));
-    --shadow-soft: 0 4px 20px -4px hsl(220 14% 50% / 0.15);
-    --shadow-elevated: 0 20px 40px -12px hsl(220 14% 50% / 0.2);
+    --gradient-subtle: none;
+    --shadow-soft: 4px 4px 0px rgba(0,0,0,1);
+    --shadow-elevated: 6px 6px 0px rgba(0,0,0,1);
   }
 }
 
@@ -92,6 +53,8 @@
 
   body {
     @apply bg-background text-foreground font-jakarta antialiased;
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 
   ::selection {

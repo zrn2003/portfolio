@@ -1,7 +1,6 @@
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
 import useScrollAnimation from '@/hooks/use-scroll-animation';
 import { motion } from 'framer-motion';
-import Tilt from 'react-parallax-tilt';
 
 const EducationSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -27,9 +26,9 @@ const EducationSection = () => {
       grade: '62.40%',
       current: false,
       icon: BookOpen,
-      color: 'text-purple-400',
-      bg: 'bg-purple-500/10',
-      border: 'border-purple-500/20'
+      color: 'text-zinc-400',
+      bg: 'bg-zinc-500/10',
+      border: 'border-zinc-500/20'
     },
     {
       degree: 'Secondary School Certificate',
@@ -39,9 +38,9 @@ const EducationSection = () => {
       grade: '',
       current: false,
       icon: Award,
-      color: 'text-emerald-400',
-      bg: 'bg-emerald-500/10',
-      border: 'border-emerald-500/20'
+      color: 'text-neutral-400',
+      bg: 'bg-neutral-500/10',
+      border: 'border-neutral-500/20'
     },
   ];
 
@@ -73,10 +72,8 @@ const EducationSection = () => {
             transition={{ duration: 0.8 }}
             className="mb-16 text-center md:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium text-secondary bg-secondary/10 border border-secondary/20 rounded-full mb-6 shadow-[0_0_15px_hsl(var(--secondary)/0.1)]">
-              <GraduationCap className="w-4 h-4" /> Education
-            </div>
-            <h2 className="font-sora text-4xl md:text-5xl font-black tracking-tight text-foreground drop-shadow-md">Academic Background</h2>
+            <p className="inline-block px-3 py-1 text-xs md:text-sm font-bold font-mono tracking-widest text-black border-2 border-black bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Education</p>
+            <h2 className="font-mono text-4xl md:text-5xl font-black text-black uppercase tracking-wider">Academic Background</h2>
           </motion.div>
 
           {/* Education cards */}
@@ -88,43 +85,38 @@ const EducationSection = () => {
           >
             {education.map((edu) => (
               <motion.div variants={itemVariants} key={edu.institution} className="w-full">
-                <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} scale={1.01} transitionSpeed={2000} className="w-full transform-gpu" glareEnable={true} glareMaxOpacity={0.1} glareBorderRadius="1rem">
-                  <div className="w-full rounded-2xl border border-white/5 bg-background/40 backdrop-blur-xl p-6 md:p-8 flex flex-col md:flex-row gap-6 relative overflow-hidden group hover:border-primary/30 transition-colors duration-500 shadow-lg">
-                    {/* Hover internal glow */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${edu.current ? 'from-primary/10' : 'from-foreground/5'} via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="w-full bg-white border-2 border-black p-6 md:p-8 flex flex-col md:flex-row gap-6 shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
+                  <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-[#f0f0f0] border-2 border-black flex items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]`}>
+                    <edu.icon className={`w-8 h-8 md:w-10 md:h-10 text-black`} />
+                  </div>
 
-                    <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center ${edu.bg} ${edu.border} border group-hover:scale-110 transition-transform duration-500 shadow-inner z-10`}>
-                      <edu.icon className={`w-8 h-8 md:w-10 md:h-10 ${edu.color} drop-shadow-md`} />
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-2">
+                      <div>
+                        <h3 className="font-mono text-lg md:text-xl font-bold uppercase tracking-wider text-black">{edu.degree}</h3>
+                        {edu.field && <p className={`text-base font-bold text-black mt-1`}>{edu.field}</p>}
+                      </div>
+                      {edu.current && (
+                        <span className="inline-flex items-center px-3 py-1 text-xs font-bold font-mono tracking-widest border-2 border-black bg-[#ffff00] shadow-[2px_2px_0px_rgba(0,0,0,1)] animate-pulse">
+                          CURRENT
+                        </span>
+                      )}
                     </div>
 
-                    <div className="flex-1 relative z-10">
-                      <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-2">
-                        <div>
-                          <h3 className="font-sora text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">{edu.degree}</h3>
-                          {edu.field && <p className={`text-base font-medium mt-1 ${edu.color}`}>{edu.field}</p>}
-                        </div>
-                        {edu.current && (
-                          <span className="inline-flex items-center px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-primary/20 text-primary border border-primary/30 shadow-[0_0_10px_hsl(var(--primary)/0.2)] animate-pulse">
-                            Current
-                          </span>
-                        )}
-                      </div>
+                    <p className="text-base text-black font-medium mb-4 border-b-2 border-black pb-4">{edu.institution}</p>
 
-                      <p className="text-base text-muted-foreground/90 font-medium mb-4">{edu.institution}</p>
-
-                      <div className="flex flex-wrap items-center gap-4 text-sm font-semibold">
-                        <span className="px-3 py-1.5 rounded-lg bg-background/50 border border-border/50 text-foreground/80 backdrop-blur-sm">
-                          {edu.period}
+                    <div className="flex flex-wrap items-center gap-4 text-sm font-bold font-mono">
+                      <span className="px-3 py-1.5 bg-[#f0f0f0] border-2 border-black text-black">
+                        {edu.period}
+                      </span>
+                      {edu.grade && (
+                        <span className="px-3 py-1.5 bg-white border-2 border-black text-black flex items-center gap-2">
+                          <Award className="w-4 h-4" /> {edu.grade}
                         </span>
-                        {edu.grade && (
-                          <span className="px-3 py-1.5 rounded-lg bg-background/50 border border-border/50 text-primary backdrop-blur-sm shadow-sm flex items-center gap-2">
-                            <Award className="w-4 h-4" /> {edu.grade}
-                          </span>
-                        )}
-                      </div>
+                      )}
                     </div>
                   </div>
-                </Tilt>
+                </div>
               </motion.div>
             ))}
           </motion.div>

@@ -38,7 +38,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 md:py-32 bg-card/50 overflow-hidden">
+    <section id="skills" className="py-24 md:py-32 bg-white overflow-hidden border-t-2 border-b-2 border-black">
       <div className="container px-6">
         <div
           ref={ref}
@@ -46,34 +46,32 @@ const SkillsSection = () => {
             }`}
         >
           <div className="mb-16">
-            <p className="section-subheading">Skills</p>
-            <h2 className="section-heading">Technical Expertise</h2>
+            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Skills</p>
+            <h2 className="font-mono text-4xl md:text-5xl font-black text-black uppercase tracking-wider">Technical Expertise</h2>
           </div>
 
           {/* Marquee Strip */}
-          <div className="relative flex overflow-hidden group mb-16 py-8">
+          <div className="relative flex overflow-hidden group mb-16 py-8 border-y-2 border-black bg-[#f0f0f0] shadow-[inset_0_4px_4px_rgba(0,0,0,0.05),inset_0_-4px_4px_rgba(0,0,0,0.05)]">
             <div className="animate-marquee flex items-center min-w-max group-hover:[animation-play-state:paused]">
               {[...allSkills, ...allSkills].map((skill, index) => (
                 <div key={`skill-${index}`} className="flex-shrink-0 mx-8 md:mx-12 flex flex-col items-center justify-center gap-3 grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300">
-                  <skill.icon className="w-12 h-12 text-muted-foreground hover:text-primary transition-colors duration-300" />
-                  <span className="text-xs font-medium text-muted-foreground/80 lowercase tracking-wider">{skill.name}</span>
+                  <skill.icon className="w-12 h-12 text-black transition-colors duration-300" />
+                  <span className="text-xs font-bold font-mono text-black uppercase tracking-wider">{skill.name}</span>
                 </div>
               ))}
             </div>
 
-            {/* Edge Gradients for smooth fading effect */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
+            {/* Edge Gradients removed for neo-brutalism */}
           </div>
 
           {/* Certifications */}
           <div>
-            <h3 className="font-sora font-semibold text-lg mb-6 text-foreground">Certifications</h3>
-            <div className="flex flex-wrap gap-3">
+            <h3 className="font-mono font-bold text-xl mb-6 text-black uppercase tracking-wider">Certifications</h3>
+            <div className="flex flex-wrap gap-4">
               {certifications.map((cert) => (
                 <span
                   key={cert}
-                  className="px-4 py-2 bg-muted border border-border rounded-lg text-sm text-foreground"
+                  className="px-4 py-2 bg-white border-2 border-black text-sm font-bold text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all cursor-default"
                 >
                   {cert}
                 </span>

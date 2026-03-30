@@ -1,7 +1,6 @@
 import { Code2, Brain, Shield, Briefcase, Award, GraduationCap, Zap, Github, Linkedin, Mail } from 'lucide-react';
 import useScrollAnimation from '@/hooks/use-scroll-animation';
 import { motion } from 'framer-motion';
-import Tilt from 'react-parallax-tilt';
 
 const BentoGrid = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -17,180 +16,128 @@ const BentoGrid = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 12 } },
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 15 } },
   };
 
   return (
     <section id="highlights" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none translate-y-[-50%]"></div>
-
       <div className="container px-6 relative z-10">
         <div
           ref={ref}
           className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-          {/* Header */}
-          <div className="mb-16">
-            <p className="px-3 py-1 text-sm font-medium text-primary bg-primary/10 border border-primary/20 rounded-full inline-block mb-4 shadow-[0_0_15px_hsl(var(--primary)/0.1)]">Overview</p>
-            <h2 className="font-sora text-4xl md:text-5xl font-bold tracking-tight text-foreground drop-shadow-md">At a Glance</h2>
-          </div>
-
           {/* Bento Grid */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min"
           >
-            {/* Large featured card - Full-Stack */}
-            <motion.div variants={itemVariants} className="col-span-2 row-span-2 h-full">
-              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2500} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.15} glarePosition="all" glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-8 flex flex-col justify-between relative overflow-hidden group shadow-xl shadow-black/5 hover:border-primary/50 transition-colors duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/30 rounded-full blur-3xl group-hover:bg-primary/50 transition-all duration-700"></div>
-
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 rounded-xl bg-foreground/5 flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500 shadow-[0_0_15px_hsl(var(--primary)/0.1)]">
-                      <Code2 className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="font-sora text-3xl font-bold text-foreground mb-3 drop-shadow-sm">Full-Stack Interface</h3>
-                    <p className="text-muted-foreground text-lg mb-6 max-w-sm leading-relaxed">
+            {/* Left Column */}
+            <div className="flex flex-col gap-6 col-span-1 md:col-span-1">
+              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col h-full shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                <div className="border-b-2 border-black px-5 py-3 flex items-center gap-2 bg-[#fafafa]">
+                   <Code2 className="w-5 h-5" />
+                   <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">Full-Stack Interface</h3>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <p className="text-black text-sm mb-6 leading-relaxed">
                       Engineering high-performance, intelligent web applications with modern architecture.
                     </p>
                   </div>
-                  <div className="relative z-10 flex gap-2 flex-wrap">
-                    {['React', 'Node.js', 'TypeScript', 'Tailwind'].map(tech => (
-                      <span key={tech} className="px-3 py-1.5 text-sm font-medium bg-background/50 border border-border/50 rounded-lg text-foreground backdrop-blur-md shadow-sm">
+                  <div className="flex gap-2 flex-wrap">
+                    {['React', 'Node.js', 'TS', 'Tailwind'].map(tech => (
+                      <span key={tech} className="px-2 py-1 text-xs font-mono font-bold border-2 border-black bg-[#f0f0f0] text-black">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-              </Tilt>
-            </motion.div>
+              </motion.div>
+            </div>
 
-            {/* AI/ML Card */}
-            <motion.div variants={itemVariants} className="col-span-1 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.2} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-purple-500/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative z-10">
-                    <Brain className="w-8 h-8 text-purple-400 mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 filter drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" />
-                    <h3 className="font-sora font-bold text-lg text-foreground mb-1">AI & ML</h3>
-                    <p className="text-sm text-muted-foreground">Neural Nets, CNN frameworks & Data Science</p>
+            {/* Middle Column */}
+            <div className="flex flex-col gap-6 col-span-1 md:col-span-1">
+              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col h-full shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                <div className="border-b-2 border-black px-5 py-3 flex items-center gap-2 bg-[#fafafa]">
+                  <Brain className="w-5 h-5" />
+                  <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">AI & ML</h3>
+                </div>
+                <div className="p-6 bg-[#f9f9f9] flex-1">
+                  <p className="text-sm font-bold mb-4">Focusing on neural models & intelligent retrieval:</p>
+                  <ul className="text-sm space-y-2 font-mono ml-4 list-disc marker:text-black">
+                    <li>TensorFlow & CNN</li>
+                    <li>Data Pipeline</li>
+                    <li>Predictive Models</li>
+                    <li>Data Science</li>
+                  </ul>
+                </div>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                 <div className="border-b-2 border-black px-5 py-3 flex items-center gap-2 bg-white">
+                   <Shield className="w-5 h-5" />
+                   <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">Cybersecurity</h3>
+                 </div>
+                 <div className="p-6 text-center py-10">
+                   <p className="text-sm font-mono font-bold bg-white border-2 border-black inline-block px-4 py-2 rotate-[-2deg] shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                     Threat Detection AI
+                   </p>
+                 </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-6 col-span-1 md:col-span-1">
+              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col flex-1 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                <div className="border-b-2 border-black px-5 py-3 flex items-center gap-2 bg-[#fafafa]">
+                  <Briefcase className="w-5 h-5" />
+                  <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">Experience</h3>
+                </div>
+                <div className="p-6 bg-[#f0f0f0] flex-1 relative overflow-hidden flex flex-col justify-center items-center">
+                   <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
+                   <p className="font-mono text-6xl font-black text-black">3+</p>
+                   <p className="mt-2 text-sm font-bold uppercase tracking-widest">Internships</p>
+                </div>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+                 <div className="border-b-2 border-black px-5 py-3 flex items-center gap-2 bg-[#fafafa]">
+                  <GraduationCap className="w-5 h-5" />
+                  <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">Education</h3>
+                </div>
+                <div className="p-6 flex flex-col justify-center">
+                  <p className="font-bold text-lg leading-tight mb-2">B.Tech Computer Science</p>
+                  <p className="text-sm mb-4">SKN Sinhgad College</p>
+                  <div className="inline-flex items-center gap-2 border-2 border-black px-3 py-1 bg-[#ffff00] w-fit font-mono font-bold shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                    CGPA: 8.32
                   </div>
                 </div>
-              </Tilt>
-            </motion.div>
+              </motion.div>
+            </div>
 
-            {/* Cybersecurity Card */}
-            <motion.div variants={itemVariants} className="col-span-1 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.2} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative z-10">
-                    <Shield className="w-8 h-8 text-emerald-400 mb-4 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 filter drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                    <h3 className="font-sora font-bold text-lg text-foreground mb-1">Cybersecurity</h3>
-                    <p className="text-sm text-muted-foreground">Network Security & Threat Detection AI</p>
-                  </div>
-                </div>
-              </Tilt>
-            </motion.div>
-
-            {/* Stats Card - Experience */}
-            <motion.div variants={itemVariants} className="col-span-1 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.1} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 flex flex-col justify-center items-center text-center relative overflow-hidden group hover:border-amber-500/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Briefcase className="w-8 h-8 text-amber-400 mb-3 group-hover:-translate-y-2 transition-transform duration-500" />
-                  <p className="font-sora text-5xl font-black text-foreground drop-shadow-md">3+</p>
-                  <p className="text-sm font-medium text-muted-foreground mt-1">Internships</p>
-                </div>
-              </Tilt>
-            </motion.div>
-
-            {/* Stats Card - Projects */}
-            <motion.div variants={itemVariants} className="col-span-1 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.1} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 flex flex-col justify-center items-center text-center relative overflow-hidden group hover:border-rose-500/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Zap className="w-8 h-8 text-rose-400 mb-3 group-hover:-translate-y-2 transition-transform duration-500" />
-                  <p className="font-sora text-5xl font-black text-foreground drop-shadow-md">5+</p>
-                  <p className="text-sm font-medium text-muted-foreground mt-1">Projects Built</p>
-                </div>
-              </Tilt>
-            </motion.div>
-
-            {/* Education Card - Wide */}
-            <motion.div variants={itemVariants} className="col-span-2 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={10} scale={1.02} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.15} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 md:p-8 flex items-center gap-6 relative overflow-hidden group hover:border-blue-500/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-cyan-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border border-cyan-500/20">
-                    <GraduationCap className="w-8 h-8 text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-sora text-xl font-bold text-foreground mb-1">B.Tech Computer Science</h3>
-                    <p className="text-muted-foreground font-medium">SKN Sinhgad College of Engineering</p>
-                  </div>
-                  <div className="text-right pl-4 border-l border-border/50">
-                    <p className="font-sora text-4xl font-black text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 drop-shadow-sm">8.32</p>
-                    <p className="text-sm font-bold text-muted-foreground tracking-widest uppercase mt-1">CGPA</p>
-                  </div>
-                </div>
-              </Tilt>
-            </motion.div>
-
-            {/* Certifications Card */}
-            <motion.div variants={itemVariants} className="col-span-2 md:col-span-2 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={10} scale={1.02} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.15} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 md:p-8 flex flex-col justify-center relative overflow-hidden group hover:border-indigo-500/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-transparent to-violet-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="flex items-center gap-4 mb-5 relative z-10">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
-                      <Award className="w-5 h-5 text-indigo-400" />
-                    </div>
-                    <h3 className="font-sora text-xl font-bold text-foreground">Elite Certifications</h3>
-                  </div>
-                  <div className="flex gap-3 flex-wrap relative z-10">
-                    {['Google Cloud Architect', 'Cisco CyberOps', 'Microsoft AI', 'Walmart Software Eng.'].map(cert => (
-                      <span key={cert} className="text-sm font-medium px-4 py-2 bg-background/50 border border-border/50 rounded-xl text-foreground hover:bg-indigo-500/20 hover:border-indigo-500/30 transition-colors cursor-default shadow-sm backdrop-blur-sm">
-                        {cert}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Tilt>
-            </motion.div>
-
-            {/* Connect Card */}
-            <motion.div variants={itemVariants} className="col-span-2 md:col-span-4 row-span-1 h-full">
-              <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} scale={1.01} transitionSpeed={2000} className="h-full transform-gpu" glareEnable={true} glareMaxOpacity={0.1} glareBorderRadius="1rem">
-                <div className="h-full rounded-2xl border border-white/10 bg-card/40 backdrop-blur-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group hover:border-primary/50 transition-colors duration-500 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  <div className="text-center md:text-left relative z-10">
-                    <h3 className="font-sora text-2xl font-bold text-foreground mb-2">Let's build something incredible.</h3>
-                    <p className="text-muted-foreground font-medium flex items-center justify-center md:justify-start gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" /> Actively open to new opportunities
-                    </p>
-                  </div>
-
-                  <div className="flex gap-4 relative z-10">
-                    <a href="https://github.com/zrn2003" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-2xl bg-background/80 border border-border/50 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)]">
-                      <Github className="w-6 h-6" />
-                    </a>
-                    <a href="https://linkedin.com/in/zishanrn2003" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-2xl bg-background/80 border border-border/50 flex items-center justify-center hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(10,102,194,0.4)]">
-                      <Linkedin className="w-6 h-6" />
-                    </a>
-                    <a href="mailto:zishanrn2003@gmail.com" className="px-8 flex items-center gap-3 rounded-2xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5)]">
-                      <Mail className="w-5 h-5" /> Say Hello
-                    </a>
-                  </div>
-                </div>
-              </Tilt>
+            {/* Bottom Row across 3 columns */}
+            <motion.div variants={itemVariants} className="col-span-1 md:col-span-3 bg-white border-2 border-black flex flex-col md:flex-row items-center justify-between p-6 shadow-[6px_6px_0px_rgba(0,0,0,1)] space-y-6 md:space-y-0 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[#e5e5e5] opacity-30 [mask-image:linear-gradient(to_bottom,transparent,black)] pointer-events-none" />
+              <div className="relative z-10 text-center md:text-left">
+                 <h3 className="font-mono text-lg font-bold text-black mb-1 uppercase tracking-wider">Connect & Build</h3>
+                 <p className="text-sm font-bold flex items-center justify-center md:justify-start gap-2">
+                    <span className="w-3 h-3 border-2 border-black bg-[#ffff00]" /> Actively open to new opportunities
+                 </p>
+              </div>
+              <div className="flex gap-4 relative z-10">
+                 <a href="https://github.com/zrn2003" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white border-2 border-black flex items-center justify-center hover:bg-[#e0e0e0] transition-colors shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+                    <Github className="w-5 h-5" />
+                 </a>
+                 <a href="https://linkedin.com/in/zishanrn2003" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white border-2 border-black flex items-center justify-center hover:bg-[#e0e0e0] transition-colors shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+                    <Linkedin className="w-5 h-5" />
+                 </a>
+                 <a href="mailto:zishanrn2003@gmail.com" className="px-6 flex items-center gap-2 bg-black text-white font-mono font-bold uppercase border-2 border-black hover:bg-white hover:text-black transition-colors shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none">
+                    <Mail className="w-4 h-4" /> Hello
+                 </a>
+              </div>
             </motion.div>
 
           </motion.div>
