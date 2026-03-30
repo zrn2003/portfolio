@@ -81,8 +81,11 @@ const BentoGrid = () => {
                    <Shield className="w-5 h-5" />
                    <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">Cybersecurity</h3>
                  </div>
-                 <div className="p-6 flex-1 flex flex-col justify-center">
-                   <div className="flex flex-wrap gap-2 justify-center">
+                 <div className="p-6 flex-1 flex flex-col justify-center items-center gap-4">
+                   <p className="text-sm font-mono font-bold bg-white border-2 border-black inline-block px-4 py-2 rotate-[-2deg] shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                     Threat Detection AI
+                   </p>
+                   <div className="flex flex-wrap gap-2 justify-center mt-2">
                      <span className="text-xs font-mono font-bold bg-[#ffff00] border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">Phishing</span>
                      <span className="text-xs font-mono font-bold bg-[#f0f0f0] border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">DDoS Defense</span>
                      <span className="text-xs font-mono font-bold bg-white border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">Encryption</span>
