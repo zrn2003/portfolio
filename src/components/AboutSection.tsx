@@ -8,7 +8,7 @@ const AboutSection = () => {
   const expertise = [
     { icon: Code2, title: 'Full-Stack Development', desc: 'React, Node.js, modern frameworks', color: 'text-zinc-400', bg: 'bg-zinc-500/10', border: 'border-zinc-500/20' },
     { icon: Brain, title: 'AI & Machine Learning', desc: 'CNN models, data science', color: 'text-neutral-400', bg: 'bg-neutral-500/10', border: 'border-neutral-500/20' },
-    { icon: Shield, title: 'Cybersecurity', desc: 'Threat detection, security systems', color: 'text-stone-400', bg: 'bg-stone-500/10', border: 'border-stone-500/20' },
+    { icon: Shield, title: 'Cybersecurity', desc: 'Phishing mitigation, DDoS defense, Encryption architecture', color: 'text-stone-400', bg: 'bg-stone-500/10', border: 'border-stone-500/20' },
     { icon: Database, title: 'Database Engineering', desc: 'SQL optimization, data architecture', color: 'text-gray-400', bg: 'bg-gray-500/10', border: 'border-gray-500/20' },
   ];
 

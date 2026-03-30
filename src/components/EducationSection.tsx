@@ -35,7 +35,7 @@ const EducationSection = () => {
       field: 'Maharashtra State Board',
       institution: 'Sangola Vidyamandir Prashala, Sangola',
       period: '2019 – 2020',
-      grade: '',
+      grade: '84.80%',
       current: false,
       icon: Award,
       color: 'text-neutral-400',

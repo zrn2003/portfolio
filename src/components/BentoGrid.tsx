@@ -76,15 +76,18 @@ const BentoGrid = () => {
                 </div>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+              <motion.div variants={itemVariants} className="bg-white border-2 border-black flex flex-col flex-1 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] shadow-[6px_6px_0px_rgba(0,0,0,1)]">
                  <div className="border-b-2 border-black px-5 py-3 flex items-center gap-2 bg-white">
                    <Shield className="w-5 h-5" />
                    <h3 className="font-mono text-sm uppercase font-bold tracking-widest text-black">Cybersecurity</h3>
                  </div>
-                 <div className="p-6 text-center py-10">
-                   <p className="text-sm font-mono font-bold bg-white border-2 border-black inline-block px-4 py-2 rotate-[-2deg] shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                     Threat Detection AI
-                   </p>
+                 <div className="p-6 flex-1 flex flex-col justify-center">
+                   <div className="flex flex-wrap gap-2 justify-center">
+                     <span className="text-xs font-mono font-bold bg-[#ffff00] border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">Phishing</span>
+                     <span className="text-xs font-mono font-bold bg-[#f0f0f0] border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">DDoS Defense</span>
+                     <span className="text-xs font-mono font-bold bg-white border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">Encryption</span>
+                     <span className="text-xs font-mono font-bold bg-black text-white border-2 border-black px-2 py-1 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform cursor-default">Decryption</span>
+                   </div>
                  </div>
               </motion.div>
             </div>
