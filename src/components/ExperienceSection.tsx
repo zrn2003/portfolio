@@ -7,6 +7,18 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
+      title: 'Software Development Trainee (Full-Time)',
+      company: 'Triple R Innovate – EdTech Startup',
+      location: 'Remote',
+      period: 'Dec 2025 – Apr 2026',
+      points: [
+        'Spearheaded multiplatform front-end development using React.js; engineered reusable component libraries with mobile-first responsive design (CSS Grid / Flexbox) ensuring consistent UX across desktop and mobile.',
+        'Built production RESTful APIs with Node.js / Express.js; applied web performance optimisation — caching, lazy loading, code splitting — improving page load time by 30%.',
+        'Maintained structured Git / GitHub workflows with CI/CD via GitHub Actions; contributed to Agile/Scrum ceremonies and technical documentation of application processes and features.',
+        'Participated in cross-functional problem-solving discussions with designers and product managers to align application features with business requirements.',
+      ],
+    },
+    {
       title: 'Trainee Developer',
       company: 'Rezoomex IT Product & Services',
       location: 'Pune, Maharashtra',

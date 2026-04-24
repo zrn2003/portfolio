@@ -56,14 +56,14 @@ const AboutSection = () => {
                   With deep expertise spanning full-stack development, ethical hacking, and AI/ML data science, I bridge the gap between complex algorithmic challenges and elegant, user-centric interfaces. My journey ranges from training CNN diagnostic models to architecting real-time phishing detection systems.
                 </p>
                 <p className="text-lg text-black font-medium leading-relaxed mt-4">
-                  Maintaining a robust <strong className="border-b-2 border-black">8.32 CGPA</strong>, I fuse academic rigor with practical industry experience—having impacted real users through successful engineering internships at Rezoomex, TeachNook, and Lead Soft.
+                  Maintaining a robust <strong className="border-b-2 border-black">8.32 CGPA</strong>, I fuse academic rigor with practical industry experience—having impacted real users through successful engineering internships at Triple R Innovate, Rezoomex, TeachNook, and Lead Soft.
                 </p>
               </div>
 
               {/* Glowing Stats Bar */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
                 {[
-                  { value: '3+', label: 'Internships' },
+                  { value: '4+', label: 'Internships' },
                   { value: '5+', label: 'Projects Built' },
                   { value: '8.32', label: 'CGPA' },
                 ].map((stat, i) => (
