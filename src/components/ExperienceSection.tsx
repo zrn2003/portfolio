@@ -2,6 +2,10 @@ import { MapPin, Briefcase } from 'lucide-react';
 import useScrollAnimation from '@/hooks/use-scroll-animation';
 import { motion } from 'framer-motion';
 
+// Logo Imports
+import rezoomexLogo from '@/logo/rezoomex.png';
+import teachnookLogo from '@/logo/Teachnook.png';
+
 const ExperienceSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -23,6 +27,7 @@ const ExperienceSection = () => {
       company: 'Rezoomex IT Product & Services',
       location: 'Pune, Maharashtra',
       period: 'Aug 2025 – Sep 2025',
+      logo: rezoomexLogo,
       points: [
         'Gained expertise in SDLC, contributing to application design and development',
         'Enhanced application quality through clean code and optimization techniques',
@@ -34,6 +39,7 @@ const ExperienceSection = () => {
       company: 'TeachNook — E-Learning Platform',
       location: 'Bengaluru, Karnataka',
       period: 'Apr 2024 – May 2024',
+      logo: teachnookLogo,
       points: [
         'Analyzed marketing data using Python, Pandas, and SQL Server',
         'Engineered features using NumPy for data preparation and visualization',
@@ -108,9 +114,16 @@ const ExperienceSection = () => {
                   <div className="bg-white border-2 border-black p-6 md:p-8 flex flex-col relative overflow-hidden shadow-[6px_6px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
                     <div className="relative z-10">
                       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                        <div>
-                          <h3 className="font-mono text-xl md:text-2xl font-bold text-black mb-1 uppercase tracking-widest">{exp.title}</h3>
-                          <p className="text-lg text-black font-bold uppercase">{exp.company}</p>
+                        <div className="flex items-center gap-4">
+                          {exp.logo && (
+                            <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 border-2 border-black p-1 bg-white shadow-[2px_2px_0px_rgba(0,0,0,1)] overflow-hidden">
+                              <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
+                            </div>
+                          )}
+                          <div>
+                            <h3 className="font-mono text-xl md:text-2xl font-bold text-black mb-1 uppercase tracking-widest">{exp.title}</h3>
+                            <p className="text-lg text-black font-bold uppercase">{exp.company}</p>
+                          </div>
                         </div>
                         <span className="inline-flex items-center px-3 py-1 text-sm font-bold font-mono tracking-widest rounded-none bg-[#f0f0f0] border-2 border-black text-black whitespace-nowrap shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                           {exp.period}
