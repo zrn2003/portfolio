@@ -9,20 +9,41 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      window.location.href = `mailto:zishanrn2003@gmail.com?subject=${subject}&body=${body}`;
-      
-      toast.success('Opening your email client...');
+      // Direct call to Resend REST API
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`
+        },
+        body: JSON.stringify({
+          from: 'Portfolio Contact <onboarding@resend.dev>',
+          to: 'zishanrn2003@gmail.com', // Your email
+          subject: `Portfolio Contact from ${formData.name}`,
+          html: `
+            <h2>New Contact Message</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Message:</strong><br/>${formData.message.replace(/\n/g, '<br/>')}</p>
+          `
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message via Resend');
+      }
+
+      toast.success('Message sent successfully! I will get back to you soon.');
       setFormData({ name: '', email: '', message: '' });
     } catch (error: any) {
-      console.error('Error generating email:', error);
-      toast.error('Failed to open email client. Please try again.');
+      console.error('Error sending email:', error);
+      toast.error(`Error: ${error.message || 'Failed to send. Check console.'}`);
     } finally {
       setIsSubmitting(false);
     }
