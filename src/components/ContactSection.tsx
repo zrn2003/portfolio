@@ -9,47 +9,22 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_KEY_HERE') {
-        throw new Error('Web3Forms Access Key is missing or invalid.');
-      }
-
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          subject: `Portfolio Contact from ${formData.name}`,
-        })
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Failed to send message via Web3Forms');
-      }
-
-      toast.success('Message sent successfully! I will get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error: any) {
-      console.error('Error sending email:', error);
-      toast.error(`Error: ${error.message || 'Failed to send. Check console.'}`);
-      
-      // Fallback to mailto if it fails
       const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      
+      // Open the user's email client
       window.location.href = `mailto:zishanrn2003@gmail.com?subject=${subject}&body=${body}`;
+      
+      toast.success('Opening your email client...');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      console.error('Error generating email:', error);
+      toast.error('Failed to open email client. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
