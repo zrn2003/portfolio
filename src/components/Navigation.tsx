@@ -19,22 +19,37 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      const sections = navLinks.map(link => link.href.slice(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 200) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
+    // Use IntersectionObserver to track active section more efficiently
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observe all sections
+    navLinks.forEach((link) => {
+      const sectionId = link.href.slice(1);
+      const element = document.getElementById(sectionId);
+      if (element) observer.observe(element);
+    });
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   return (
