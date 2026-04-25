@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 // Logo Imports
 import rezoomexLogo from '@/logo/rezoomex.png';
 import teachnookLogo from '@/logo/Teachnook.png';
+import leadsoftLogo from '@/logo/leadsoft.png';
+import tripleRLogo from '@/logo/triplerinnovate.png';
 
 const ExperienceSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -15,6 +17,7 @@ const ExperienceSection = () => {
       company: 'Triple R Innovate – EdTech Startup',
       location: 'Remote',
       period: 'Dec 2025 – Apr 2026',
+      logo: tripleRLogo,
       points: [
         'Spearheaded multiplatform front-end development using React.js; engineered reusable component libraries with mobile-first responsive design (CSS Grid / Flexbox) ensuring consistent UX across desktop and mobile.',
         'Built production RESTful APIs with Node.js / Express.js; applied web performance optimisation — caching, lazy loading, code splitting — improving page load time by 30%.',
@@ -51,6 +54,7 @@ const ExperienceSection = () => {
       company: 'Lead Soft',
       location: 'Remote',
       period: '2024',
+      logo: leadsoftLogo,
       points: [
         'Designed SQL-based backend systems ensuring 100% data accuracy',
         'Built data-driven interfaces, boosting efficiency by 20%',
