@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '@/logo/logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,9 +61,8 @@ const Navigation = () => {
     >
       <div className="flex items-center justify-between gap-6 md:gap-10">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2.5 font-mono font-black text-2xl text-black whitespace-nowrap pl-2 hover:translate-x-[2px] transition-transform">
-          <img src={logo} alt="Logo" className="w-8 h-8 object-contain border-2 border-black bg-white shadow-[2px_2px_0px_rgba(0,0,0,1)]" />
-          <span>ZN<span className="text-[#ffff00] drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">.</span></span>
+        <a href="#home" className="font-mono font-black text-2xl text-black whitespace-nowrap pl-2 flex hover:translate-x-[2px] transition-transform">
+          ZN<span className="text-[#ffff00] drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">.</span>
         </a>
 
         {/* Desktop nav */}
