@@ -1,83 +1,234 @@
+import { useState } from 'react';
 import useScrollAnimation from '@/hooks/use-scroll-animation';
 import {
-  SiPython, SiJavascript, SiReact, SiNodedotjs, SiExpress,
-  SiTensorflow, SiPandas, SiNumpy, SiScikitlearn, SiGit,
-  SiGithub, SiGooglecloud, SiSelenium, SiMysql, SiHtml5
+  SiPython, SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiExpress,
+  SiTensorflow, SiPytorch, SiMongodb, SiSupabase, SiCloudflare,
+  SiDocker, SiFastapi, SiGit, SiGithub, SiGooglecloud, SiPostman
 } from 'react-icons/si';
-import { FaJava, FaDatabase, FaCss3Alt } from 'react-icons/fa';
+import { FaDatabase, FaAward, FaTerminal, FaShieldAlt, FaServer, FaBrain, FaCheckCircle } from 'react-icons/fa';
 
 const SkillsSection = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [activeCategory, setActiveCategory] = useState<string>('all');
 
-  const allSkills = [
-    { name: 'Python', icon: SiPython },
-    { name: 'Java', icon: FaJava },
-    { name: 'JavaScript', icon: SiJavascript },
-    { name: 'ReactJS', icon: SiReact },
+  const marqueeSkills = [
+    { name: 'React 19', icon: SiReact },
+    { name: 'TypeScript', icon: SiTypescript },
     { name: 'Node.js', icon: SiNodedotjs },
     { name: 'Express.js', icon: SiExpress },
+    { name: 'Python', icon: SiPython },
+    { name: 'PyTorch', icon: SiPytorch },
     { name: 'TensorFlow', icon: SiTensorflow },
-    { name: 'Pandas', icon: SiPandas },
-    { name: 'NumPy', icon: SiNumpy },
-    { name: 'Machine Learning', icon: SiScikitlearn },
+    { name: 'FastAPI', icon: SiFastapi },
+    { name: 'MongoDB', icon: SiMongodb },
+    { name: 'Supabase', icon: SiSupabase },
+    { name: 'Cloudflare R2', icon: SiCloudflare },
+    { name: 'Docker', icon: SiDocker },
+    { name: 'Postman', icon: SiPostman },
     { name: 'Git', icon: SiGit },
     { name: 'GitHub', icon: SiGithub },
     { name: 'Google Cloud', icon: SiGooglecloud },
-    { name: 'Selenium', icon: SiSelenium },
-    { name: 'SQL Server', icon: FaDatabase },
-    { name: 'MySQL', icon: SiMysql },
-    { name: 'HTML5', icon: SiHtml5 },
-    { name: 'CSS3', icon: FaCss3Alt },
+  ];
+
+  const skillCategories = [
+    {
+      id: 'frontend',
+      title: 'Frontend Engineering',
+      icon: SiReact,
+      skills: [
+        'React 19', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS 4', 'HTML5', 'CSS3',
+        'React Hooks', 'Component Architecture', 'Responsive Design', 'Accessibility (WCAG)'
+      ]
+    },
+    {
+      id: 'backend',
+      title: 'Backend Engineering',
+      icon: FaServer,
+      skills: [
+        'Node.js', 'Express.js', 'FastAPI', 'Flask', 'REST API Design',
+        'Input Validation', 'Error Handling', 'JWT Authentication', 'Firebase Admin SDK', 'WebSocket'
+      ]
+    },
+    {
+      id: 'databases',
+      title: 'Databases & ORM',
+      icon: FaDatabase,
+      skills: [
+        'MongoDB (Mongoose)', 'Supabase (PostgreSQL)', 'SQL Server', 'Firebase Firestore',
+        'Schema Design', 'Query Optimisation', 'Prisma (familiar)'
+      ]
+    },
+    {
+      id: 'cloud',
+      title: 'Storage & Cloud',
+      icon: SiCloudflare,
+      skills: [
+        'Cloudflare R2', 'AWS SDK', 'AWS Lambda', 'AWS S3', 'AWS EC2',
+        'Vercel', 'Render', 'Google Cloud', 'Docker', 'GitHub Actions CI/CD', 'Linux'
+      ]
+    },
+    {
+      id: 'aiml',
+      title: 'AI & Machine Learning',
+      icon: FaBrain,
+      skills: [
+        'TensorFlow', 'PyTorch', 'ResNet architectures', 'FastAPI ML serving',
+        'Model evaluation', 'ETL pipelines', 'Anomaly detection', 'Adversarial ML (PGD attacks)'
+      ]
+    },
+    {
+      id: 'aitools',
+      title: 'AI Dev Tooling',
+      icon: FaTerminal,
+      skills: [
+        'Claude Code', 'Cursor IDE', 'Antigravity Shortcuts', 'Prompt Engineering', 'MCP (Anthropic)'
+      ]
+    },
+    {
+      id: 'testing',
+      title: 'Testing & Quality',
+      icon: FaCheckCircle,
+      skills: [
+        'pytest', 'Postman', 'Component testing', 'End-to-end testing',
+        'Regression testing', 'CI/CD pipelines', 'Structured code review', 'PR workflows'
+      ]
+    },
+    {
+      id: 'security',
+      title: 'Cybersecurity',
+      icon: FaShieldAlt,
+      skills: [
+        'Phishing/URL analysis', 'Adversarial ML', 'Threat detection',
+        'Digital forensics fundamentals', 'Network security', 'Cybersecurity Minor (SKN Sinhgad)'
+      ]
+    },
   ];
 
   const certifications = [
-    'Cloud Architecture (Google Cloud)',
-    'Introduction to Cybersecurity (Cisco)',
-    'Generative AI (Microsoft & LinkedIn)',
-    'Advanced Software Engineering (Walmart)',
+    { title: 'Model Context Protocol (MCP)', issuer: 'Anthropic', highlight: true },
+    { title: 'AWS Cloud Foundations', issuer: 'Amazon Web Services', highlight: false },
+    { title: 'Cloud Architecture', issuer: 'Google Cloud Platform', highlight: false },
+    { title: 'Cybersecurity Fundamentals', issuer: 'Cisco', highlight: false },
+    { title: 'Java Programming', issuer: 'NPTEL / IIT Madras', highlight: false },
   ];
 
+  const filteredCategories = activeCategory === 'all'
+    ? skillCategories
+    : skillCategories.filter(cat => cat.id === activeCategory);
+
   return (
-    <section id="skills" className="py-24 md:py-32 bg-white overflow-hidden border-t-2 border-b-2 border-black">
+    <section id="skills" className="py-24 md:py-32 bg-white dark:bg-[#0c0d10] overflow-hidden border-t-2 border-b-2 border-black dark:border-zinc-700">
       <div className="container px-6">
         <div
           ref={ref}
-          className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
-          <div className="mb-16">
-            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Skills</p>
-            <h2 className="font-mono text-4xl md:text-5xl font-black text-black uppercase tracking-wider">Technical Expertise</h2>
+          {/* Header */}
+          <div className="mb-12">
+            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-zinc-700 bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Skills & Expertise</p>
+            <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Technical Arsenal</h2>
+            <p className="mt-4 text-black dark:text-zinc-300 font-medium text-base md:text-lg max-w-2xl">
+              From full-stack web applications and cloud storage to deep learning models and cybersecurity research.
+            </p>
           </div>
 
           {/* Marquee Strip */}
-          <div className="relative flex overflow-hidden group mb-16 py-8 border-y-2 border-black bg-[#f0f0f0] shadow-[inset_0_4px_4px_rgba(0,0,0,0.05),inset_0_-4px_4px_rgba(0,0,0,0.05)]">
+          <div className="relative flex overflow-hidden group mb-14 py-6 border-y-2 border-black dark:border-zinc-700 bg-[#f0f0f0] dark:bg-[#16171b] shadow-[inset_0_4px_4px_rgba(0,0,0,0.05),inset_0_-4px_4px_rgba(0,0,0,0.05)]">
             <div className="animate-marquee flex items-center min-w-max group-hover:[animation-play-state:paused]">
-              {[...allSkills, ...allSkills].map((skill, index) => (
-                <div key={`skill-${index}`} className="flex-shrink-0 mx-8 md:mx-12 flex flex-col items-center justify-center gap-3 grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300">
-                  <skill.icon className="w-12 h-12 text-black transition-colors duration-300" />
-                  <span className="text-xs font-bold font-mono text-black uppercase tracking-wider">{skill.name}</span>
+              {[...marqueeSkills, ...marqueeSkills].map((skill, index) => (
+                <div key={`skill-${index}`} className="flex-shrink-0 mx-6 md:mx-8 flex flex-col items-center justify-center gap-2 grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300">
+                  <skill.icon className="w-10 h-10 text-black dark:text-zinc-200 transition-colors duration-300" />
+                  <span className="text-[11px] font-bold font-mono text-black dark:text-zinc-300 uppercase tracking-wider">{skill.name}</span>
                 </div>
               ))}
             </div>
-
-            {/* Edge Gradients removed for neo-brutalism */}
           </div>
 
-          {/* Certifications */}
-          <div>
-            <h3 className="font-mono font-bold text-xl mb-6 text-black uppercase tracking-wider">Certifications</h3>
-            <div className="flex flex-wrap gap-4">
+          {/* Filter Pills */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-3 py-1.5 text-xs font-mono font-bold uppercase border-2 transition-all ${
+                activeCategory === 'all'
+                  ? 'bg-black dark:bg-[#ffff00] text-white dark:text-black border-black dark:border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white dark:bg-[#16171b] text-black dark:text-zinc-200 border-black dark:border-zinc-700 hover:bg-[#f0f0f0] dark:hover:bg-zinc-800'
+              }`}
+            >
+              All Categories ({skillCategories.length})
+            </button>
+            {skillCategories.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3 py-1.5 text-xs font-mono font-bold uppercase border-2 transition-all ${
+                  activeCategory === cat.id
+                    ? 'bg-[#ffff00] text-black border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]'
+                    : 'bg-white dark:bg-[#16171b] text-black dark:text-zinc-200 border-black dark:border-zinc-700 hover:bg-[#f0f0f0] dark:hover:bg-zinc-800'
+                }`}
+              >
+                {cat.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Categorized Skills Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {filteredCategories.map((category) => (
+              <div
+                key={category.id}
+                className="bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-6 shadow-[5px_5px_0px_rgba(0,0,0,1)] dark:shadow-[5px_5px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0px_rgba(0,0,0,1)] transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-3 border-b-2 border-black dark:border-zinc-700 pb-3 mb-4">
+                    <div className="w-8 h-8 bg-[#ffff00] border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                      <category.icon className="w-4 h-4 text-black" />
+                    </div>
+                    <h3 className="font-mono font-bold text-base uppercase tracking-wider text-black dark:text-white">
+                      {category.title}
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-1 bg-[#f7f7f7] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-xs font-mono font-bold text-black dark:text-zinc-200 hover:bg-[#ffff00] hover:text-black dark:hover:bg-[#ffff00] dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all cursor-default"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Certifications Block */}
+          <div className="border-t-2 border-black dark:border-zinc-700 pt-12">
+            <div className="flex items-center gap-2 mb-6">
+              <FaAward className="w-6 h-6 text-black dark:text-[#ffff00]" />
+              <h3 className="font-mono font-bold text-2xl text-black dark:text-white uppercase tracking-wider">
+                Certifications & Credentials
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {certifications.map((cert) => (
-                <span
-                  key={cert}
-                  className="px-4 py-2 bg-white border-2 border-black text-sm font-bold text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all cursor-default"
+                <div
+                  key={cert.title}
+                  className={`p-4 border-2 border-black dark:border-zinc-700 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all ${
+                    cert.highlight ? 'bg-[#ffff00] text-black' : 'bg-white dark:bg-[#16171b] text-black dark:text-white'
+                  }`}
                 >
-                  {cert}
-                </span>
+                  <p className="font-mono font-black text-sm uppercase mb-1">{cert.title}</p>
+                  <p className="text-xs font-bold font-mono tracking-wide uppercase bg-white/80 dark:bg-zinc-800 border border-black dark:border-zinc-700 px-2 py-0.5 inline-block text-black dark:text-zinc-300">
+                    Issuer: {cert.issuer}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Sparkles, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HeroSection = () => {
@@ -15,7 +15,7 @@ const HeroSection = () => {
           scale: [1, 1.2, 1]
         }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-10 pointer-events-none"
+        className="absolute top-1/4 -left-32 w-96 h-96 bg-[#ffff00]/15 dark:bg-[#ffff00]/10 rounded-full blur-[120px] -z-10 pointer-events-none"
       />
       <motion.div
         animate={{
@@ -24,7 +24,7 @@ const HeroSection = () => {
           scale: [1, 1.5, 1]
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-secondary/10 rounded-full blur-[120px] -z-10 pointer-events-none"
+        className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-[130px] -z-10 pointer-events-none"
       />
 
       <div className="container relative z-10 px-6 py-32 flex flex-col items-center justify-center">
@@ -35,19 +35,35 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-4 flex flex-col items-center"
+              className="space-y-5 flex flex-col items-center"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 border-2 border-black bg-[#ffff00] text-black font-mono font-bold tracking-widest text-sm mb-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] uppercase">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 border-2 border-black dark:border-zinc-700 bg-[#ffff00] text-black font-mono font-bold tracking-widest text-xs sm:text-sm shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] uppercase">
                 <Sparkles className="w-4 h-4" />
-                Hello, I'm
+                Zishan Nadaf · Portfolio 2026
               </div>
-              <h1 className="font-mono text-4xl sm:text-6xl md:text-8xl font-black text-black leading-[1.1] tracking-tight relative">
+
+              <h1 className="font-mono text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black dark:text-white leading-[1.05] tracking-tight relative text-center">
                 <span>Zishan</span>
-                <span className="block mt-2 bg-black text-white px-4 sm:px-6 inline-block shadow-[4px_4px_0px_rgba(0,0,0,0.1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">Nadaf</span>
+                <span className="block mt-2 bg-black dark:bg-[#ffff00] text-white dark:text-black px-4 sm:px-6 inline-block shadow-[4px_4px_0px_rgba(0,0,0,0.15)] sm:shadow-[6px_6px_0px_rgba(0,0,0,0.15)]">Nadaf</span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-black font-medium max-w-2xl leading-relaxed mt-6 sm:mt-8 border-2 border-black p-4 bg-white shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                Full-Stack Developer & AI Enthusiast crafting innovative solutions
-                with modern technologies.
+
+              <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider pt-1">
+                <span className="bg-white dark:bg-[#18191e] border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200 px-3 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Full Stack Developer</span>
+                <span className="bg-white dark:bg-[#18191e] border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200 px-3 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">AI/ML Engineer</span>
+                <span className="bg-[#ffff00] border-2 border-black text-black px-3 py-1 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Cybersecurity Researcher</span>
+              </div>
+
+              <div className="inline-flex flex-wrap items-center justify-center gap-3 px-4 py-2 border-2 border-black dark:border-zinc-700 bg-[#f0f0f0] dark:bg-zinc-800 text-black dark:text-zinc-200 font-mono text-xs sm:text-sm font-bold shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(0,0,0,0.8)]">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse inline-block" />
+                  Pune, Maharashtra, India
+                </span>
+                <span className="hidden sm:inline">|</span>
+                <span>Open for: Full-time · Freelance · Remote</span>
+              </div>
+
+              <p className="text-base sm:text-lg md:text-xl text-black dark:text-zinc-200 font-medium max-w-3xl leading-relaxed mt-4 border-2 border-black dark:border-zinc-700 p-5 sm:p-6 bg-white dark:bg-[#15161a] shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.8)] text-left sm:text-center">
+                B.E. Computer Science graduate <span className="font-bold bg-[#ffff00] text-black px-1.5 py-0.5 border border-black font-mono">(CGPA 8.46/10)</span> with 8 months of industry experience building and shipping production web applications. I work across the full stack — React, TypeScript, Node.js, Express, MongoDB — and use AI-assisted development tools (Claude Code, Cursor) to ship faster without cutting corners on quality. Currently exploring adversarial robustness in ML-based security systems.
               </p>
             </motion.div>
 
@@ -56,13 +72,24 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl"
+              className="flex flex-wrap justify-center gap-2 max-w-3xl pt-2"
             >
-              {['React', 'Python', 'Java', 'Node.js', 'Machine Learning', 'Cybersecurity'].map((skill, i) => (
+              {[
+                'React 19',
+                'TypeScript',
+                'Node.js / Express',
+                'MongoDB Atlas',
+                'Supabase',
+                'Cloudflare R2',
+                'Python & PyTorch',
+                'FastAPI',
+                'Adversarial ML',
+                'Claude Code & Cursor',
+              ].map((skill) => (
                 <motion.span
                   whileHover={{ scale: 1.05, y: -2 }}
                   key={skill}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold font-mono uppercase bg-white border-2 border-black text-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] transition-colors cursor-default"
+                  className="px-3 py-1 text-xs font-bold font-mono uppercase bg-white dark:bg-[#1c1d22] border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#ffff00] dark:hover:bg-[#ffff00] dark:hover:text-black transition-all cursor-default"
                 >
                   {skill}
                 </motion.span>
@@ -74,17 +101,26 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 pt-6 w-full max-w-lg"
+              className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-4 w-full max-w-xl"
             >
-              <a href="#projects" className="px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-mono font-bold uppercase border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all text-center w-full sm:w-auto text-sm sm:text-base">
-                Explore My Work
+              <a
+                href="#projects"
+                className="px-6 py-3.5 bg-black dark:bg-[#ffff00] text-white dark:text-black font-mono font-bold uppercase border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all text-center text-sm"
+              >
+                Featured Projects
+              </a>
+              <a
+                href="#contact"
+                className="px-6 py-3.5 bg-[#ffff00] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-black dark:text-white font-mono font-bold uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:bg-white hover:text-black dark:hover:bg-zinc-700 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2 text-center text-sm"
+              >
+                Get In Touch <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="/Zishan_Nadaf_Resume.pdf"
                 download
-                className="px-6 sm:px-8 py-3 sm:py-4 bg-[#ffff00] border-2 border-black text-black font-mono font-bold uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2 group w-full sm:w-auto text-sm sm:text-base"
+                className="px-6 py-3.5 bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 text-black dark:text-white font-mono font-bold uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:bg-[#f0f0f0] dark:hover:bg-zinc-800 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2 text-center text-sm"
               >
-                <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+                <Download className="w-4 h-4" />
                 Resume
               </a>
             </motion.div>
@@ -94,29 +130,32 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
-              className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-8 sm:pt-10"
+              className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4"
             >
               <a
                 href="https://github.com/zrn2003"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-black flex items-center justify-center text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all"
+                className="h-11 px-4 bg-white dark:bg-[#1c1d22] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-white shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:bg-[#f0f0f0] dark:hover:bg-zinc-800 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
               >
-                <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+                <Github className="w-4 h-4" />
+                <span>GitHub</span>
               </a>
               <a
                 href="https://linkedin.com/in/zishanrn2003"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-black flex items-center justify-center text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#0A66C2] hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all"
+                className="h-11 px-4 bg-white dark:bg-[#1c1d22] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-white shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:bg-[#0A66C2] hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
               >
-                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
+                <Linkedin className="w-4 h-4" />
+                <span>LinkedIn</span>
               </a>
               <a
                 href="mailto:zishanrn2003@gmail.com"
-                className="w-12 h-12 sm:w-14 sm:h-14 bg-white border-2 border-black flex items-center justify-center text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all"
+                className="h-11 px-4 bg-white dark:bg-[#1c1d22] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-white shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:bg-[#ffff00] hover:text-black dark:hover:bg-[#ffff00] dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
               >
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+                <Mail className="w-4 h-4" />
+                <span>Email</span>
               </a>
             </motion.div>
           </div>
@@ -131,15 +170,14 @@ const HeroSection = () => {
         >
           <a
             href="#about"
-            className="flex flex-col items-center text-black hover:opacity-70 transition-colors group"
+            className="flex flex-col items-center text-black dark:text-zinc-300 hover:opacity-70 transition-colors group"
           >
-            <span className="text-xs uppercase font-mono font-bold tracking-[0.3em] mb-4 border-2 border-black px-2 py-1 bg-white shadow-[2px_2px_0px_rgba(0,0,0,1)]">Scroll</span>
-            <div className="w-8 h-12 border-2 border-black flex justify-center p-2 bg-white shadow-[2px_2px_0px_rgba(0,0,0,1)] group-hover:bg-[#f0f0f0] transition-colors relative">
-              {/* That line */}
+            <span className="text-xs uppercase font-mono font-bold tracking-[0.3em] mb-4 border-2 border-black dark:border-zinc-700 px-2 py-1 bg-white dark:bg-[#1c1d22] shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Scroll</span>
+            <div className="w-8 h-12 border-2 border-black dark:border-zinc-700 flex justify-center p-2 bg-white dark:bg-[#1c1d22] shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)] group-hover:bg-[#f0f0f0] dark:group-hover:bg-zinc-800 transition-colors relative">
               <motion.div
                 animate={{ y: [0, 16, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1 h-3 bg-black absolute top-2"
+                className="w-1 h-3 bg-black dark:bg-[#ffff00] absolute top-2"
               />
             </div>
           </a>

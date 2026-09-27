@@ -5,14 +5,14 @@ import BentoGrid from '@/components/BentoGrid';
 import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
+import PublicationSection from '@/components/PublicationSection';
 import EducationSection from '@/components/EducationSection';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen relative font-jakarta selection:bg-primary/20 text-black">
-      {/* Brutalist Grid shines through from body in index.css */}
-
+    <div className="min-h-screen relative font-jakarta selection:bg-[#ffff00] selection:text-black text-foreground bg-background transition-colors duration-200">
       <Navigation />
       <main>
         <HeroSection />
@@ -21,7 +21,9 @@ const Index = () => {
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
+        <PublicationSection />
         <EducationSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
