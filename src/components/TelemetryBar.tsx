@@ -97,7 +97,7 @@ const TelemetryBar: React.FC<TelemetryBarProps> = ({ activeDiscipline = 'all', o
                   </span>
                   <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${item.color} group-hover:scale-110 transition-transform flex-shrink-0`} />
                 </div>
-                <p className="font-mono text-xs sm:text-base md:text-lg font-black text-black dark:text-white leading-tight truncate">
+                <p className="font-mono text-xs sm:text-base md:text-lg font-black text-black dark:text-white leading-tight whitespace-nowrap truncate">
                   {item.value}
                 </p>
                 <div className="mt-0.5 sm:mt-1 flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-400 group-hover:text-black dark:group-hover:text-[#00F0FF] transition-colors truncate">

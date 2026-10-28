@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
       badge: 'Interdisciplinary Profile',
       bio: (
         <>
-          B.E. Computer Science graduate <span className="font-bold bg-[#ffff00] dark:bg-[#00FF66] text-black px-1.5 py-0.5 border border-black font-mono">(CGPA 8.46/10)</span> with 8 months of industry experience building and shipping production web applications. I work across the full stack — React 19, TypeScript, Node.js, Express, MongoDB, Cloudflare R2 — and use AI-assisted development tools (Claude Code, Cursor) to ship faster without cutting corners on quality. Currently exploring adversarial robustness in ML-based security systems.
+          B.E. Computer Science graduate <span className="font-bold bg-[#ffff00] dark:bg-[#00FF66] text-black px-1.5 py-0.5 border border-black font-mono whitespace-nowrap">(CGPA 8.46/10)</span> with 8 months of industry experience building and shipping production web applications. I work across the full stack — React 19, TypeScript, Node.js, Express, MongoDB, Cloudflare R2 — and use AI-assisted development tools (Claude Code, Cursor) to ship faster without cutting corners on quality. Currently exploring adversarial robustness in ML-based security systems.
         </>
       ),
       skills: ['React 19', 'TypeScript', 'Node.js / Express', 'MongoDB Atlas', 'Cloudflare R2', 'Python & PyTorch', 'FastAPI', 'Adversarial ML', 'Claude Code & Cursor'],
@@ -101,16 +101,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-3.5 sm:space-y-5 flex flex-col items-center w-full"
             >
-              {/* Telemetry pill */}
-              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-mono text-[10px] sm:text-[11px] font-bold">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 border-2 border-black dark:border-[#1E293B] bg-white dark:bg-[#0F1626] text-black dark:text-[#00FF66] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase">
+              {/* Telemetry badges: Hidden on phone view to declutter mobile screen, visible on sm+ with proper text formatting */}
+              <div className="hidden sm:flex flex-wrap items-center justify-center gap-2 font-mono text-[11px] font-bold">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-white dark:bg-[#0F1626] text-black dark:text-[#00FF66] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase whitespace-nowrap">
                   <span className="w-2 h-2 rounded-full bg-[#ffff00] border border-black dark:border-none dark:bg-[#00FF66] animate-pulse" />
                   SEC-NODE: ACTIVE · PUNE
                 </span>
-                <span className="hidden sm:inline-flex px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-[#ffff00] dark:bg-[#131d33] text-black dark:text-[#00F0FF] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono">
+                <span className="inline-flex items-center px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-[#ffff00] dark:bg-[#131d33] text-black dark:text-[#00F0FF] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono whitespace-nowrap">
                   AES-256 ENCRYPTED
                 </span>
-                <span className="inline-flex px-2.5 py-0.5 sm:px-3 sm:py-1 border-2 border-black dark:border-[#1E293B] bg-black text-white dark:bg-[#1f1638] dark:text-[#A855F7] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono">
+                <span className="inline-flex items-center px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-black text-white dark:bg-[#1f1638] dark:text-[#A855F7] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono whitespace-nowrap">
                   CGPA 8.46 / 10
                 </span>
               </div>
