@@ -14,12 +14,6 @@ const TelemetryBar: React.FC<TelemetryBarProps> = ({ activeDiscipline = 'all', o
       value: '92.0% Test Acc',
       badge: 'IJSRET Published',
       icon: Award,
-    {
-      id: 'accuracy',
-      label: 'Model Accuracy',
-      value: '92.0% Test Acc',
-      badge: 'IJSRET Published',
-      icon: Award,
       color: 'text-black dark:text-[#00FF66]',
       border: 'border-black dark:border-[#00FF66]/30',
       discipline: 'aiml',
