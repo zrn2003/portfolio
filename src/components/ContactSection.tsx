@@ -71,12 +71,12 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 md:mb-20"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm font-bold font-mono tracking-widest text-black border-2 border-black dark:border-zinc-700 bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm font-bold font-mono tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
               <Sparkles className="w-4 h-4" /> Get in Touch
             </div>
             <h2 className="font-mono text-4xl md:text-5xl md:text-6xl font-black uppercase text-black dark:text-white">Let's Work Together</h2>
             <p className="text-black dark:text-zinc-300 font-bold mt-4 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-              Available for <span className="bg-[#ffff00] text-black px-1 border border-black">Full-time roles · Freelance · Remote</span>. Reach out to discuss software engineering, AI/ML, or security research.
+              Available for <span className="bg-[#ffff00] dark:bg-[#00FF66] text-black px-1 border border-black font-mono">Full-time roles · Freelance · Remote</span>. Reach out to discuss software engineering, AI/ML, or security research.
             </p>
           </motion.div>
 
@@ -96,7 +96,7 @@ const ContactSection = () => {
                     rel={item.external ? 'noopener noreferrer' : undefined}
                     className="bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-4 sm:p-5 flex items-center gap-4 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all block group"
                   >
-                    <div className="w-12 h-12 bg-[#ffff00] flex items-center justify-center border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#ffff00] dark:bg-[#00FF66] flex items-center justify-center border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] flex-shrink-0">
                       <item.icon className="w-6 h-6 text-black" />
                     </div>
 
@@ -121,7 +121,7 @@ const ContactSection = () => {
                       href="https://github.com/zrn2003"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-white dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 font-mono font-bold uppercase text-xs text-black dark:text-white shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-[#ffff00] dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+                      className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-white dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 font-mono font-bold uppercase text-xs text-black dark:text-white shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-[#00FF66] dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                     >
                       <Github className="w-4 h-4" />
                       GitHub
@@ -155,7 +155,7 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="w-full bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 p-3 text-sm text-black dark:text-white font-bold placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ffff00] transition-all"
+                      className="w-full bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 p-3 text-sm text-black dark:text-white font-bold placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ffff00] dark:focus:ring-[#00FF66] transition-all"
                       placeholder="e.g. John Doe"
                     />
                   </div>
@@ -166,7 +166,7 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 p-3 text-sm text-black dark:text-white font-bold placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ffff00] transition-all"
+                      className="w-full bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 p-3 text-sm text-black dark:text-white font-bold placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ffff00] dark:focus:ring-[#00FF66] transition-all"
                       placeholder="you@domain.com"
                     />
                   </div>
@@ -177,7 +177,7 @@ const ContactSection = () => {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       required
                       rows={4}
-                      className="w-full bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 p-3 text-sm text-black dark:text-white font-bold placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ffff00] transition-all resize-none"
+                      className="w-full bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 p-3 text-sm text-black dark:text-white font-bold placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#ffff00] dark:focus:ring-[#00FF66] transition-all resize-none"
                       placeholder="Let's build something remarkable..."
                     />
                   </div>
@@ -185,7 +185,7 @@ const ContactSection = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-black dark:bg-[#ffff00] text-white dark:text-black font-mono font-bold uppercase px-6 py-3.5 border-2 border-black hover:bg-white hover:text-black dark:hover:bg-white dark:hover:text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
+                    className="w-full bg-[#ffff00] dark:bg-[#00FF66] text-black dark:text-black font-mono font-bold uppercase px-6 py-3.5 border-2 border-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all disabled:opacity-50"
                   >
                     <div className="flex items-center justify-center gap-2">
                       {isSubmitting ? (

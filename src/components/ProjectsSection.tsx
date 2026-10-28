@@ -71,7 +71,7 @@ const ProjectsSection = () => {
       type: 'Research Project · Full Stack · AI/ML · Published',
       status: 'Published · Deployed',
       badge: 'PEER-REVIEWED PUBLICATION',
-      publication: 'IJSRET Vol. 12, Issue 2, 2025 (Peer-Reviewed)',
+      publication: 'IJSRET Vol. 12, Issue 2, 2026 (Peer-Reviewed)',
       liveUrl: 'https://skinsightai.vercel.app/',
       liveLabel: 'Live App',
       repoUrl: 'https://github.com/zrn2003/SkinSight',
@@ -170,7 +170,7 @@ const ProjectsSection = () => {
         >
           {/* Header */}
           <div className="mb-14">
-            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-zinc-700 bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Portfolio</p>
+            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Portfolio</p>
             <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Featured Systems & Research</h2>
             <p className="mt-4 text-black dark:text-zinc-300 font-medium text-base md:text-lg max-w-2xl">
               Production client systems, published deep learning research, and adversarial cybersecurity pipelines.
@@ -185,23 +185,23 @@ const ProjectsSection = () => {
               return (
                 <div
                   key={project.id}
-                  className={`bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.8)] transition-all ${
-                    project.featured ? 'border-black dark:border-zinc-600' : ''
+                  className={`bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:border-black dark:hover:border-[#00FF66] transition-all ${
+                    project.featured ? 'border-black dark:border-[#1E293B]' : ''
                   }`}
                 >
                   {/* Top Bar with Badge & Actions */}
                   <div className="p-6 md:p-8">
                     <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-[#ffff00] border-2 border-black flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                        <div className="w-12 h-12 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,1)] flex-shrink-0">
                           <project.icon className="w-6 h-6 text-black" />
                         </div>
                         <div>
                           <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <span className="font-mono text-xs font-bold uppercase tracking-wider bg-black dark:bg-[#ffff00] text-white dark:text-black px-2.5 py-0.5 border border-black">
+                            <span className="font-mono text-xs font-bold uppercase tracking-wider bg-[#ffff00] dark:bg-[#00FF66] text-black px-2.5 py-0.5 border border-black font-black">
                               {project.badge}
                             </span>
-                            <span className="font-mono text-xs font-bold uppercase tracking-wider bg-[#f0f0f0] dark:bg-zinc-800 text-black dark:text-zinc-200 px-2 py-0.5 border border-black dark:border-zinc-700">
+                            <span className="font-mono text-xs font-bold uppercase tracking-wider bg-[#f0f0f0] dark:bg-[#131d33] text-black dark:text-zinc-200 px-2 py-0.5 border border-black dark:border-[#1E293B]">
                               {project.status}
                             </span>
                           </div>
@@ -218,7 +218,7 @@ const ProjectsSection = () => {
                             href={project.paperUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#ffff00] border-2 border-black font-mono font-bold uppercase text-xs text-black shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black font-mono font-bold uppercase text-xs text-black shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                           >
                             <FileText className="w-3.5 h-3.5" />
                             Read Paper (PDF)
@@ -231,11 +231,11 @@ const ProjectsSection = () => {
                             rel="noopener noreferrer"
                             className={`inline-flex items-center gap-1.5 px-4 py-2 border-2 border-black font-mono font-bold uppercase text-xs shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all ${
                               project.paperUrl
-                                ? 'bg-white dark:bg-zinc-800 text-black dark:text-white dark:border-zinc-700 hover:bg-[#f0f0f0] dark:hover:bg-zinc-700'
-                                : 'bg-[#ffff00] text-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
+                                ? 'bg-white dark:bg-[#131d33] text-black dark:text-white dark:border-[#1E293B] hover:bg-[#f0f0f0] dark:hover:bg-zinc-700'
+                                : 'bg-[#ffff00] dark:bg-[#00FF66] text-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
                             }`}
                           >
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="w-2 h-2 rounded-full bg-[#ffff00] border border-black dark:border-none dark:bg-emerald-500 animate-pulse" />
                             {project.liveLabel || 'Live Demo'} <ExternalLink className="w-3.5 h-3.5" />
                           </a>
                         )}
@@ -263,9 +263,9 @@ const ProjectsSection = () => {
 
                     {/* Publication citation badge if exists */}
                     {project.publication && (
-                      <div className="mb-6 p-3 bg-[#ffff00]/30 dark:bg-[#ffff00]/10 border-2 border-black dark:border-zinc-700 flex flex-wrap items-center justify-between gap-3">
+                      <div className="mb-6 p-3 bg-[#ffff00]/30 dark:bg-[#00FF66]/10 border-2 border-black dark:border-[#00FF66]/40 flex flex-wrap items-center justify-between gap-3">
                         <div className="flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-black dark:text-[#ffff00] flex-shrink-0" />
+                          <CheckCircle2 className="w-5 h-5 text-black dark:text-[#00FF66] flex-shrink-0" />
                           <span className="font-mono text-xs sm:text-sm font-bold text-black dark:text-white">
                             Publication: {project.publication}
                           </span>
@@ -275,7 +275,7 @@ const ProjectsSection = () => {
                             href={project.paperUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-mono text-xs font-bold text-black dark:text-[#ffff00] underline inline-flex items-center gap-1.5 hover:opacity-80"
+                            className="font-mono text-xs font-bold text-black dark:text-[#00FF66] underline inline-flex items-center gap-1.5 hover:opacity-80"
                           >
                             <FileText className="w-3.5 h-3.5" />
                             View Published PDF <ExternalLink className="w-3 h-3" />
@@ -289,8 +289,8 @@ const ProjectsSection = () => {
                       <p className="font-mono text-xs font-bold uppercase tracking-widest text-black dark:text-white">Key Highlights:</p>
                       <ul className="grid sm:grid-cols-2 gap-2 text-sm font-medium text-black dark:text-zinc-200">
                         {project.highlights.map((h, i) => (
-                          <li key={i} className="flex items-start gap-2 bg-[#f9f9f9] dark:bg-zinc-800/80 border border-black dark:border-zinc-700 p-2.5">
-                            <span className="font-bold text-black dark:text-[#ffff00] flex-shrink-0 mt-0.5">▹</span>
+                          <li key={i} className="flex items-start gap-2 bg-[#f9f9f9] dark:bg-[#131d33] border border-black dark:border-[#1E293B] p-2.5">
+                            <span className="font-bold text-black dark:text-[#00FF66] flex-shrink-0 mt-0.5">▹</span>
                             <span>{h}</span>
                           </li>
                         ))}
@@ -337,7 +337,7 @@ const ProjectsSection = () => {
                             <ul className="space-y-1.5 text-xs sm:text-sm font-medium text-black dark:text-zinc-300">
                               {project.builtPoints.map((bp, i) => (
                                 <li key={i} className="flex items-start gap-2">
-                                  <span className="text-black dark:text-[#ffff00] font-bold flex-shrink-0 mt-0.5">▪</span>
+                                  <span className="text-black dark:text-[#00FF66] font-bold flex-shrink-0 mt-0.5">▪</span>
                                   <span>{bp}</span>
                                 </li>
                               ))}

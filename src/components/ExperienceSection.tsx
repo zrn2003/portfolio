@@ -91,7 +91,7 @@ const ExperienceSection = () => {
             transition={{ duration: 0.8 }}
             className="mb-16 md:mb-24"
           >
-            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-zinc-700 bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Experience</p>
+            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Experience</p>
             <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Professional Journey</h2>
           </motion.div>
 
@@ -113,7 +113,7 @@ const ExperienceSection = () => {
                   className="relative pl-10 md:pl-16 group"
                 >
                   {/* Glowing Timeline dot */}
-                  <div className="absolute left-0 top-6 w-5 h-5 md:w-6 md:h-6 bg-[#ffff00] border-4 border-black dark:border-zinc-800 group-hover:bg-white dark:group-hover:bg-[#ffff00] transition-all duration-300 z-10 shadow-[2px_2px_0px_rgba(0,0,0,1)]" />
+                  <div className="absolute left-0 top-6 w-5 h-5 md:w-6 md:h-6 bg-[#ffff00] dark:bg-[#00FF66] border-4 border-black dark:border-[#00FF66] group-hover:bg-white dark:group-hover:bg-[#00FF66] transition-all duration-300 z-10 shadow-[2px_2px_0px_rgba(0,0,0,1)]" />
 
                   <div className="bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-6 md:p-8 flex flex-col relative overflow-hidden shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
                     <div className="relative z-10">
@@ -135,14 +135,14 @@ const ExperienceSection = () => {
                       </div>
 
                       <div className="flex items-center gap-1.5 text-sm text-black dark:text-zinc-300 font-bold font-mono mb-6 uppercase border-b-2 border-black dark:border-zinc-700 pb-4">
-                        <MapPin className="w-4 h-4 text-black dark:text-[#ffff00]" />
+                        <MapPin className="w-4 h-4 text-black dark:text-[#00FF66]" />
                         {exp.location}
                       </div>
 
                       <ul className="space-y-3 font-medium text-black dark:text-zinc-200">
                         {exp.points.map((point, i) => (
                           <li key={i} className="flex gap-4 text-base leading-relaxed">
-                            <span className="text-black dark:text-[#ffff00] font-bold flex-shrink-0 mt-1">▹</span>
+                            <span className="text-black dark:text-[#00FF66] font-bold flex-shrink-0 mt-1">▹</span>
                             <span>{point}</span>
                           </li>
                         ))}

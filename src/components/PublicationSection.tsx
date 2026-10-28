@@ -14,7 +14,7 @@ const PublicationSection = () => {
         >
           {/* Header */}
           <div className="mb-14">
-            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-zinc-700 bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">
+            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
               Research & Academic Credentials
             </p>
             <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">
@@ -30,17 +30,17 @@ const PublicationSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
-            className="bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(0,0,0,0.8)] relative"
+            className="bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_25px_rgba(0,0,0,0.7)] relative"
           >
             {/* Top Bar Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-black dark:border-zinc-700 pb-4 mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-black dark:border-[#1E293B] pb-4 mb-6">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ffff00] text-black border-2 border-black font-mono font-bold text-xs uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#ffff00] dark:bg-[#00FF66] text-black border-2 border-black font-mono font-bold text-xs uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                   <CheckCircle className="w-3.5 h-3.5 text-black" />
                   Peer-Reviewed Journal Article
                 </span>
-                <span className="font-mono text-xs font-bold uppercase tracking-wider bg-black dark:bg-zinc-800 text-white px-3 py-1 border border-black dark:border-zinc-700">
-                  Published · 2025
+                <span className="font-mono text-xs font-bold uppercase tracking-wider bg-[#ffff00] dark:bg-[#131d33] text-black dark:text-[#00FF66] px-3 py-1 border border-black dark:border-[#1E293B]">
+                  Published · 2026
                 </span>
               </div>
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-black dark:text-zinc-300 bg-[#f0f0f0] dark:bg-zinc-800 border border-black dark:border-zinc-700 px-2.5 py-1">
@@ -57,14 +57,14 @@ const PublicationSection = () => {
                 International Journal of Scientific Research in Engineering and Technology (IJSRET)
               </p>
               <div className="flex flex-wrap items-center gap-2">
-                <p className="text-xs sm:text-sm font-mono font-bold text-black dark:text-zinc-300 bg-[#f5f5f5] dark:bg-zinc-900 p-2 border border-black dark:border-zinc-700 inline-block">
-                  Authors: <span className="underline decoration-[#ffff00] decoration-2">Zishan Nadaf</span> · SKN Sinhgad College of Engineering
+                <p className="text-xs sm:text-sm font-mono font-bold text-black dark:text-zinc-300 bg-[#f5f5f5] dark:bg-[#131d33] p-2 border border-black dark:border-[#1E293B] inline-block">
+                  Authors: <span className="underline decoration-[#ffff00] dark:decoration-[#00FF66] decoration-2">Zishan Nadaf</span> · SKN Sinhgad College of Engineering
                 </p>
                 <a
                   href="https://ijsret.com/wp-content/uploads/IJSRET_V12_issue2_370.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-mono font-bold text-black dark:text-[#ffff00] underline inline-flex items-center gap-1 p-2 bg-[#ffff00]/20 dark:bg-zinc-900 border border-black dark:border-zinc-700 hover:opacity-80"
+                  className="text-xs font-mono font-bold text-black dark:text-[#00FF66] underline inline-flex items-center gap-1 p-2 bg-[#ffff00]/20 dark:bg-[#00FF66]/10 border border-black dark:border-[#00FF66]/40 hover:opacity-80"
                 >
                   <FileText className="w-3.5 h-3.5" />
                   PDF: IJSRET_V12_issue2_370.pdf
@@ -74,9 +74,9 @@ const PublicationSection = () => {
 
             {/* Abstract & Scientific Findings */}
             <div className="space-y-4 mb-8">
-              <div className="bg-[#fafafa] dark:bg-[#121316] border-2 border-black dark:border-zinc-700 p-5 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+              <div className="bg-[#fafafa] dark:bg-[#0c121f] border-2 border-black dark:border-[#1E293B] p-5 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
                 <h4 className="font-mono font-bold text-xs uppercase tracking-wider text-black dark:text-white mb-2 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-[#ffff00]" /> Abstract & System Overview
+                  <FileText className="w-4 h-4 text-[#ffff00] dark:text-[#00FF66]" /> Abstract & System Overview
                 </h4>
                 <p className="text-sm md:text-base text-black dark:text-zinc-200 font-medium leading-relaxed">
                   Skin condition diagnosis often requires specialized dermatologist access that remains inaccessible to underserved populations. This paper presents <strong>SkinSight</strong>, an AI-powered clinical triage web platform powered by a novel two-stage deep learning pipeline combining a <strong>ResNet18 gating classifier</strong> with a <strong>ResNet50 / InceptionV3 ensemble</strong>. The architecture achieves <strong>92% classification accuracy</strong> on held-out test datasets, served via an asynchronous FastAPI backend and Dockerized CI/CD workflow.
@@ -119,7 +119,7 @@ const PublicationSection = () => {
                   href="https://ijsret.com/wp-content/uploads/IJSRET_V12_issue2_370.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#ffff00] text-black border-2 border-black font-mono font-bold uppercase text-xs shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#ffff00] dark:bg-[#00FF66] text-black border-2 border-black font-mono font-bold uppercase text-xs shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                 >
                   <FileText className="w-3.5 h-3.5" />
                   Read Paper (PDF)

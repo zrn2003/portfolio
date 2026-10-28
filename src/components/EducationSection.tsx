@@ -59,7 +59,7 @@ const EducationSection = () => {
   return (
     <section id="education" className="py-24 md:py-32 relative overflow-hidden">
       {/* Background ambient mesh */}
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-secondary/10 dark:bg-[#ffff00]/5 rounded-full blur-[120px] -z-10 pointer-events-none translate-x-1/3"></div>
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-secondary/10 dark:bg-[#00FF66]/5 rounded-full blur-[120px] -z-10 pointer-events-none translate-x-1/3"></div>
 
       <div className="container px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -71,7 +71,7 @@ const EducationSection = () => {
             transition={{ duration: 0.8 }}
             className="mb-16 text-center md:text-left"
           >
-            <p className="inline-block px-3 py-1 text-xs md:text-sm font-bold font-mono tracking-widest text-black border-2 border-black dark:border-zinc-700 bg-[#ffff00] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_rgba(0,0,0,0.8)]">Education</p>
+            <p className="inline-block px-3 py-1 text-xs md:text-sm font-bold font-mono tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Education</p>
             <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Academic Background</h2>
           </motion.div>
 
@@ -85,7 +85,7 @@ const EducationSection = () => {
             {education.map((edu) => (
               <motion.div variants={itemVariants} key={edu.institution} className="w-full">
                 <div className="w-full bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-6 md:p-8 flex flex-col md:flex-row gap-6 shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
-                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-[#ffff00] border-2 border-black flex items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                  <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black flex items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]">
                     <edu.icon className="w-8 h-8 md:w-10 md:h-10 text-black" />
                   </div>
 
@@ -96,7 +96,7 @@ const EducationSection = () => {
                         {edu.field && <p className="text-base font-bold text-black dark:text-zinc-200 mt-0.5">{edu.field}</p>}
                       </div>
                       {edu.status && (
-                        <span className="inline-flex items-center px-3 py-1 text-xs font-bold font-mono tracking-widest border-2 border-black bg-[#ffff00] text-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                        <span className="inline-flex items-center px-3 py-1 text-xs font-bold font-mono tracking-widest border-2 border-black bg-[#ffff00] dark:bg-[#00FF66] text-black shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                           {edu.status}
                         </span>
                       )}
@@ -109,7 +109,7 @@ const EducationSection = () => {
 
                     {edu.minor && (
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#f0f0f0] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-xs font-mono font-bold text-black dark:text-zinc-200 mb-4">
-                        <ShieldCheck className="w-4 h-4 text-black dark:text-[#ffff00]" />
+                        <ShieldCheck className="w-4 h-4 text-black dark:text-[#00FF66]" />
                         {edu.minor}
                       </div>
                     )}
@@ -133,7 +133,7 @@ const EducationSection = () => {
                       </span>
                       {edu.grade && (
                         <span className="px-3 py-1.5 bg-white dark:bg-zinc-900 border-2 border-black dark:border-zinc-700 text-black dark:text-white flex items-center gap-2 shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-                          <Award className="w-4 h-4 text-black dark:text-[#ffff00]" /> {edu.grade}
+                          <Award className="w-4 h-4 text-black dark:text-[#00FF66]" /> {edu.grade}
                         </span>
                       )}
                     </div>

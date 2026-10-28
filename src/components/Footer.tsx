@@ -11,7 +11,7 @@ const Footer = () => {
               href="https://github.com/zrn2003"
               target="_blank"
               rel="noopener noreferrer"
-              className="h-11 px-4 bg-[#f0f0f0] dark:bg-[#181920] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-zinc-100 hover:bg-[#ffff00] dark:hover:bg-[#ffff00] hover:text-black dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,0.12)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
+              className="h-11 px-4 bg-[#f0f0f0] dark:bg-[#181920] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-zinc-100 hover:bg-[#ffff00] dark:hover:bg-[#00FF66] hover:text-black dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,0.12)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
             >
               <Github className="w-4 h-4" />
               <span>GitHub</span>
@@ -27,14 +27,14 @@ const Footer = () => {
             </a>
             <a
               href="mailto:zishanrn2003@gmail.com"
-              className="h-11 px-4 bg-[#f0f0f0] dark:bg-[#181920] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-zinc-100 hover:bg-[#ffff00] dark:hover:bg-[#ffff00] hover:text-black dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,0.12)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
+              className="h-11 px-4 bg-[#f0f0f0] dark:bg-[#181920] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-zinc-100 hover:bg-[#ffff00] dark:hover:bg-[#00FF66] hover:text-black dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,0.12)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
             >
               <Mail className="w-4 h-4" />
               <span>Email</span>
             </a>
             <a
               href="tel:+919371797604"
-              className="h-11 px-4 bg-[#f0f0f0] dark:bg-[#181920] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-zinc-100 hover:bg-[#ffff00] dark:hover:bg-[#ffff00] hover:text-black dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,0.12)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
+              className="h-11 px-4 bg-[#f0f0f0] dark:bg-[#181920] border-2 border-black dark:border-zinc-700 flex items-center gap-2 text-black dark:text-zinc-100 hover:bg-[#ffff00] dark:hover:bg-[#00FF66] hover:text-black dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(255,255,255,0.12)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
             >
               <Phone className="w-4 h-4" />
               <span>+91 93717 97604</span>
@@ -54,7 +54,7 @@ const Footer = () => {
             </p>
             <div className="w-full h-px bg-black dark:bg-zinc-800 mb-4"></div>
             <div className="flex flex-wrap items-center justify-between text-xs font-bold font-mono text-black dark:text-zinc-300 gap-2">
-              <span className="text-[#00aa55] dark:text-[#00ff88]">zishannadaf.dev</span>
+              <span className="bg-[#ffff00] text-black font-black px-1.5 py-0.5 border border-black dark:border-none dark:bg-transparent dark:text-[#00ff88]">zishannadaf.dev</span>
               <span>© {new Date().getFullYear()} Zishan Nadaf · Built with precision</span>
             </div>
           </div>
