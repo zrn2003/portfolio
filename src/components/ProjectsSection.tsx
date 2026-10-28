@@ -162,66 +162,66 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 md:py-32">
-      <div className="container px-6">
+    <section id="projects" className="py-12 sm:py-20 md:py-28">
+      <div className="container px-4 sm:px-6">
         <div
           ref={ref}
           className={`max-w-6xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           {/* Header */}
-          <div className="mb-14">
-            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Portfolio</p>
-            <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Featured Systems & Research</h2>
-            <p className="mt-4 text-black dark:text-zinc-300 font-medium text-base md:text-lg max-w-2xl">
+          <div className="mb-6 sm:mb-14">
+            <p className="inline-block px-2.5 py-1 text-xs font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-3 sm:mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Portfolio</p>
+            <h2 className="font-mono text-2xl sm:text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Featured Systems & Research</h2>
+            <p className="mt-2.5 sm:mt-4 text-black dark:text-zinc-300 font-medium text-xs sm:text-base md:text-lg max-w-2xl leading-relaxed">
               Production client systems, published deep learning research, and adversarial cybersecurity pipelines.
             </p>
           </div>
 
           {/* Projects Stack */}
-          <div className="space-y-8">
+          <div className="space-y-4 sm:space-y-8">
             {projects.map((project) => {
               const isExpanded = expandedId === project.id;
 
               return (
                 <div
                   key={project.id}
-                  className={`bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:border-black dark:hover:border-[#00FF66] transition-all ${
+                  className={`bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] shadow-[3px_3px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:border-black dark:hover:border-[#00FF66] transition-all ${
                     project.featured ? 'border-black dark:border-[#1E293B]' : ''
                   }`}
                 >
                   {/* Top Bar with Badge & Actions */}
-                  <div className="p-6 md:p-8">
-                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black flex items-center justify-center shadow-[3px_3px_0px_rgba(0,0,0,1)] flex-shrink-0">
-                          <project.icon className="w-6 h-6 text-black" />
+                  <div className="p-4 sm:p-6 md:p-8">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
+                      <div className="flex items-center gap-2.5 sm:gap-3">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_rgba(0,0,0,1)] flex-shrink-0">
+                          <project.icon className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                         </div>
                         <div>
-                          <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <span className="font-mono text-xs font-bold uppercase tracking-wider bg-[#ffff00] dark:bg-[#00FF66] text-black px-2.5 py-0.5 border border-black font-black">
+                          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-0.5 sm:mb-1">
+                            <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#ffff00] dark:bg-[#00FF66] text-black px-2 sm:px-2.5 py-0.5 border border-black font-black">
                               {project.badge}
                             </span>
-                            <span className="font-mono text-xs font-bold uppercase tracking-wider bg-[#f0f0f0] dark:bg-[#131d33] text-black dark:text-zinc-200 px-2 py-0.5 border border-black dark:border-[#1E293B]">
+                            <span className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-[#f0f0f0] dark:bg-[#131d33] text-black dark:text-zinc-200 px-2 sm:px-2.5 py-0.5 border border-black dark:border-[#1E293B]">
                               {project.status}
                             </span>
                           </div>
-                          <h3 className="font-mono text-2xl md:text-3xl font-black text-black dark:text-white uppercase tracking-tight">
+                          <h3 className="font-mono text-xl sm:text-2xl md:text-3xl font-black text-black dark:text-white uppercase tracking-tight">
                             {project.title}
                           </h3>
                         </div>
                       </div>
 
-                      {/* Direct Links */}
-                      <div className="flex flex-wrap items-center gap-2">
+                      {/* Direct Links Toolbar */}
+                      <div className="w-full sm:w-auto flex flex-wrap items-center gap-1.5 sm:gap-2 mt-1 sm:mt-0">
                         {project.paperUrl && (
                           <a
                             href={project.paperUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black font-mono font-bold uppercase text-xs text-black shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black font-mono font-bold uppercase text-[11px] sm:text-xs text-black shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                           >
                             <FileText className="w-3.5 h-3.5" />
-                            Read Paper (PDF)
+                            <span>Read Paper</span>
                           </a>
                         )}
                         {project.liveUrl && (
@@ -229,14 +229,14 @@ const ProjectsSection = () => {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1.5 px-4 py-2 border-2 border-black font-mono font-bold uppercase text-xs shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all ${
+                            className={`flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 border-2 border-black font-mono font-bold uppercase text-[11px] sm:text-xs shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all ${
                               project.paperUrl
                                 ? 'bg-white dark:bg-[#131d33] text-black dark:text-white dark:border-[#1E293B] hover:bg-[#f0f0f0] dark:hover:bg-zinc-700'
                                 : 'bg-[#ffff00] dark:bg-[#00FF66] text-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black'
                             }`}
                           >
                             <span className="w-2 h-2 rounded-full bg-[#ffff00] border border-black dark:border-none dark:bg-emerald-500 animate-pulse" />
-                            {project.liveLabel || 'Live Demo'} <ExternalLink className="w-3.5 h-3.5" />
+                            <span>{project.liveLabel || 'Live Demo'}</span> <ExternalLink className="w-3.5 h-3.5" />
                           </a>
                         )}
                         {project.repoUrl && (
@@ -244,28 +244,28 @@ const ProjectsSection = () => {
                             href={project.repoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 bg-white dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 font-mono font-bold uppercase text-xs text-black dark:text-white shadow-[3px_3px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_rgba(0,0,0,0.8)] hover:bg-[#f0f0f0] dark:hover:bg-zinc-700 hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all"
+                            className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 font-mono font-bold uppercase text-[11px] sm:text-xs text-black dark:text-white shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] dark:hover:bg-zinc-700 hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                           >
                             <Github className="w-3.5 h-3.5" />
-                            GitHub
+                            <span>GitHub</span>
                           </a>
                         )}
                       </div>
                     </div>
 
                     {/* Subtitle & Tagline */}
-                    <p className="font-mono text-sm font-bold text-black/80 dark:text-zinc-400 uppercase tracking-wider mb-3">
+                    <p className="font-mono text-xs sm:text-sm font-bold text-black/80 dark:text-zinc-400 uppercase tracking-wider mb-2 sm:mb-3">
                       {project.subtitle} · {project.type}
                     </p>
-                    <p className="text-base text-black dark:text-zinc-200 font-medium leading-relaxed bg-[#fafafa] dark:bg-[#121316] p-4 border-2 border-black dark:border-zinc-700 mb-6">
+                    <p className="text-xs sm:text-sm md:text-base text-black dark:text-zinc-200 font-medium leading-relaxed bg-[#fafafa] dark:bg-[#121316] p-3 sm:p-4 border-2 border-black dark:border-zinc-700 mb-3.5 sm:mb-6">
                       {project.tagline}
                     </p>
 
                     {/* Publication citation badge if exists */}
                     {project.publication && (
-                      <div className="mb-6 p-3 bg-[#ffff00]/30 dark:bg-[#00FF66]/10 border-2 border-black dark:border-[#00FF66]/40 flex flex-wrap items-center justify-between gap-3">
+                      <div className="mb-3.5 sm:mb-6 p-2.5 sm:p-3 bg-[#ffff00]/30 dark:bg-[#00FF66]/10 border-2 border-black dark:border-[#00FF66]/40 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                         <div className="flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-black dark:text-[#00FF66] flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-black dark:text-[#00FF66] flex-shrink-0" />
                           <span className="font-mono text-xs sm:text-sm font-bold text-black dark:text-white">
                             Publication: {project.publication}
                           </span>
@@ -285,11 +285,11 @@ const ProjectsSection = () => {
                     )}
 
                     {/* Highlight Bullets */}
-                    <div className="space-y-2 mb-6">
-                      <p className="font-mono text-xs font-bold uppercase tracking-widest text-black dark:text-white">Key Highlights:</p>
-                      <ul className="grid sm:grid-cols-2 gap-2 text-sm font-medium text-black dark:text-zinc-200">
+                    <div className="space-y-1.5 sm:space-y-2 mb-3.5 sm:mb-6">
+                      <p className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-widest text-black dark:text-white">Key Highlights:</p>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium text-black dark:text-zinc-200">
                         {project.highlights.map((h, i) => (
-                          <li key={i} className="flex items-start gap-2 bg-[#f9f9f9] dark:bg-[#131d33] border border-black dark:border-[#1E293B] p-2.5">
+                          <li key={i} className="flex items-start gap-2 bg-[#f9f9f9] dark:bg-[#131d33] border border-black dark:border-[#1E293B] p-2 sm:p-2.5">
                             <span className="font-bold text-black dark:text-[#00FF66] flex-shrink-0 mt-0.5">▹</span>
                             <span>{h}</span>
                           </li>
@@ -298,12 +298,12 @@ const ProjectsSection = () => {
                     </div>
 
                     {/* Tech Stack Chips */}
-                    <div className="mb-6">
-                      <div className="flex flex-wrap gap-1.5">
+                    <div className="mb-3.5 sm:mb-6">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5">
                         {project.tech.map((t) => (
                           <span
                             key={t}
-                            className="px-2.5 py-1 text-xs font-mono font-bold bg-[#f0f0f0] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200"
+                            className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold bg-[#f0f0f0] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200"
                           >
                             {t}
                           </span>
@@ -312,29 +312,29 @@ const ProjectsSection = () => {
                     </div>
 
                     {/* Accordion Toggle for Deep Architecture & Built details */}
-                    <div className="border-t-2 border-black dark:border-zinc-700 pt-4">
+                    <div className="border-t-2 border-black dark:border-zinc-700 pt-3 sm:pt-4">
                       <button
                         onClick={() => setExpandedId(isExpanded ? null : project.id)}
-                        className="w-full flex items-center justify-between text-xs font-mono font-bold uppercase tracking-widest text-black dark:text-zinc-300 hover:bg-[#f0f0f0] dark:hover:bg-zinc-800 py-2 px-3 border border-dashed border-black dark:border-zinc-700 transition-colors"
+                        className="w-full flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-black dark:text-zinc-300 hover:bg-[#f0f0f0] dark:hover:bg-zinc-800 py-1.5 sm:py-2 px-2.5 sm:px-3 border border-dashed border-black dark:border-zinc-700 transition-colors"
                       >
-                        <span>
+                        <span className="truncate pr-2">
                           {isExpanded ? 'Hide Architecture & Build Details' : 'View Architecture, Problem Statement & Build Details'}
                         </span>
-                        {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                        {isExpanded ? <ChevronUp className="w-4 h-4 flex-shrink-0" /> : <ChevronDown className="w-4 h-4 flex-shrink-0" />}
                       </button>
 
                       {isExpanded && (
-                        <div className="mt-4 pt-4 border-t border-black dark:border-zinc-700 space-y-4">
+                        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-black dark:border-zinc-700 space-y-3 sm:space-y-4">
                           <div>
-                            <p className="font-mono text-xs font-bold uppercase tracking-wider text-black dark:text-white mb-1">Problem Addressed:</p>
-                            <p className="text-sm text-black dark:text-zinc-300 font-medium leading-relaxed bg-[#f5f5f5] dark:bg-zinc-900 p-3 border border-black dark:border-zinc-700">
+                            <p className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-black dark:text-white mb-1">Problem Addressed:</p>
+                            <p className="text-xs sm:text-sm text-black dark:text-zinc-300 font-medium leading-relaxed bg-[#f5f5f5] dark:bg-zinc-900 p-2.5 sm:p-3 border border-black dark:border-zinc-700">
                               {project.problem}
                             </p>
                           </div>
 
                           <div>
-                            <p className="font-mono text-xs font-bold uppercase tracking-wider text-black dark:text-white mb-2">What I Built & Engineered:</p>
-                            <ul className="space-y-1.5 text-xs sm:text-sm font-medium text-black dark:text-zinc-300">
+                            <p className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-black dark:text-white mb-1.5 sm:mb-2">What I Built & Engineered:</p>
+                            <ul className="space-y-1 sm:space-y-1.5 text-xs sm:text-sm font-medium text-black dark:text-zinc-300">
                               {project.builtPoints.map((bp, i) => (
                                 <li key={i} className="flex items-start gap-2">
                                   <span className="text-black dark:text-[#00FF66] font-bold flex-shrink-0 mt-0.5">▪</span>

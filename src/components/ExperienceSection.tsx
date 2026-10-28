@@ -77,11 +77,11 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section id="experience" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="experience" className="py-12 sm:py-20 md:py-28 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none translate-y-1/2 -translate-x-1/2" />
 
-      <div className="container px-6 relative z-10">
+      <div className="container px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
@@ -89,10 +89,10 @@ const ExperienceSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8 }}
-            className="mb-16 md:mb-24"
+            className="mb-8 sm:mb-14 md:mb-20"
           >
-            <p className="inline-block px-3 py-1 font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Experience</p>
-            <h2 className="font-mono text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Professional Journey</h2>
+            <p className="inline-block px-2.5 py-1 text-xs font-mono font-bold tracking-widest text-black border-2 border-black dark:border-[#00FF66] bg-[#ffff00] dark:bg-[#00FF66] uppercase mb-3 sm:mb-4 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Experience</p>
+            <h2 className="font-mono text-2xl sm:text-4xl md:text-5xl font-black text-black dark:text-white uppercase tracking-wider">Professional Journey</h2>
           </motion.div>
 
           {/* Timeline */}
@@ -103,46 +103,46 @@ const ExperienceSection = () => {
             className="relative"
           >
             {/* Elegant timeline line */}
-            <div className="absolute left-[8px] md:left-[11px] top-6 bottom-6 w-[4px] bg-black dark:bg-zinc-700" />
+            <div className="absolute left-[7px] sm:left-[8px] md:left-[11px] top-5 bottom-5 w-[3px] sm:w-[4px] bg-black dark:bg-zinc-700" />
 
-            <div className="space-y-12">
+            <div className="space-y-5 sm:space-y-12">
               {experiences.map((exp, index) => (
                 <motion.div
                   variants={itemVariants}
                   key={exp.title}
-                  className="relative pl-10 md:pl-16 group"
+                  className="relative pl-7 sm:pl-10 md:pl-16 group"
                 >
                   {/* Glowing Timeline dot */}
-                  <div className="absolute left-0 top-6 w-5 h-5 md:w-6 md:h-6 bg-[#ffff00] dark:bg-[#00FF66] border-4 border-black dark:border-[#00FF66] group-hover:bg-white dark:group-hover:bg-[#00FF66] transition-all duration-300 z-10 shadow-[2px_2px_0px_rgba(0,0,0,1)]" />
+                  <div className="absolute left-0 top-5 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#ffff00] dark:bg-[#00FF66] border-[3px] sm:border-4 border-black dark:border-[#00FF66] group-hover:bg-white dark:group-hover:bg-[#00FF66] transition-all duration-300 z-10 shadow-[1px_1px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_rgba(0,0,0,1)]" />
 
-                  <div className="bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-6 md:p-8 flex flex-col relative overflow-hidden shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all">
+                  <div className="bg-white dark:bg-[#16171b] border-2 border-black dark:border-zinc-700 p-4 sm:p-6 md:p-8 flex flex-col relative overflow-hidden shadow-[3px_3px_0px_rgba(0,0,0,1)] sm:shadow-[5px_5px_0px_rgba(0,0,0,1)] md:shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_rgba(0,0,0,0.8)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                     <div className="relative z-10">
-                      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                        <div className="flex items-center gap-4">
+                      <div className="flex flex-col md:flex-row md:items-start justify-between gap-2.5 sm:gap-4 mb-3 sm:mb-4">
+                        <div className="flex items-center gap-2.5 sm:gap-4">
                           {exp.logo && (
-                            <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 border-2 border-black dark:border-zinc-700 p-1 bg-white dark:bg-white shadow-[2px_2px_0px_rgba(0,0,0,1)] overflow-hidden">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex-shrink-0 border-2 border-black dark:border-zinc-700 p-1 bg-white dark:bg-white shadow-[2px_2px_0px_rgba(0,0,0,1)] overflow-hidden">
                               <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
                             </div>
                           )}
                           <div>
-                            <h3 className="font-mono text-xl md:text-2xl font-bold text-black dark:text-white mb-1 uppercase tracking-widest">{exp.title}</h3>
-                            <p className="text-lg text-black dark:text-zinc-200 font-bold uppercase">{exp.company}</p>
+                            <h3 className="font-mono text-base sm:text-xl md:text-2xl font-bold text-black dark:text-white mb-0.5 sm:mb-1 uppercase tracking-wider">{exp.title}</h3>
+                            <p className="text-xs sm:text-base md:text-lg text-black dark:text-zinc-200 font-bold uppercase">{exp.company}</p>
                           </div>
                         </div>
-                        <span className="inline-flex items-center px-3 py-1 text-sm font-bold font-mono tracking-widest rounded-none bg-[#f0f0f0] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200 whitespace-nowrap shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+                        <span className="self-start md:self-auto inline-flex items-center px-2.5 py-0.5 sm:px-3 sm:py-1 text-[11px] sm:text-sm font-bold font-mono tracking-wider bg-[#f0f0f0] dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 text-black dark:text-zinc-200 whitespace-nowrap shadow-[2px_2px_0px_rgba(0,0,0,1)]">
                           {exp.period}
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-sm text-black dark:text-zinc-300 font-bold font-mono mb-6 uppercase border-b-2 border-black dark:border-zinc-700 pb-4">
-                        <MapPin className="w-4 h-4 text-black dark:text-[#00FF66]" />
+                      <div className="flex items-center gap-1.5 text-xs sm:text-sm text-black dark:text-zinc-300 font-bold font-mono mb-3 sm:mb-6 uppercase border-b-2 border-black dark:border-zinc-700 pb-2.5 sm:pb-4">
+                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black dark:text-[#00FF66]" />
                         {exp.location}
                       </div>
 
-                      <ul className="space-y-3 font-medium text-black dark:text-zinc-200">
+                      <ul className="space-y-2 sm:space-y-3 font-medium text-black dark:text-zinc-200">
                         {exp.points.map((point, i) => (
-                          <li key={i} className="flex gap-4 text-base leading-relaxed">
-                            <span className="text-black dark:text-[#00FF66] font-bold flex-shrink-0 mt-1">▹</span>
+                          <li key={i} className="flex gap-2 sm:gap-4 text-xs sm:text-sm md:text-base leading-relaxed">
+                            <span className="text-black dark:text-[#00FF66] font-bold flex-shrink-0 mt-0.5">▹</span>
                             <span>{point}</span>
                           </li>
                         ))}

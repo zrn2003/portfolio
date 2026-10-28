@@ -55,26 +55,26 @@ const TelemetryBar: React.FC<TelemetryBarProps> = ({ activeDiscipline = 'all', o
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 mt-6">
-      <div className="bg-white dark:bg-[#0B0F19]/90 border-2 border-black dark:border-[#1E293B] shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_25px_rgba(0,0,0,0.8)] backdrop-blur-md p-4 sm:p-5">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black dark:border-[#1E293B] pb-3 mb-4">
-          <div className="flex items-center gap-2 font-mono text-xs text-black dark:text-zinc-300">
+    <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 mt-3 sm:mt-6">
+      <div className="bg-white dark:bg-[#0B0F19]/90 border-2 border-black dark:border-[#1E293B] shadow-[3px_3px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_25px_rgba(0,0,0,0.8)] backdrop-blur-md p-3 sm:p-5">
+        <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-3 border-b border-black dark:border-[#1E293B] pb-2 sm:pb-3 mb-2.5 sm:mb-4">
+          <div className="flex items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-xs text-black dark:text-zinc-300">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffff00] dark:bg-[#00FF66] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffff00] border border-black dark:border-none dark:bg-[#00FF66]"></span>
             </span>
             <span className="font-bold uppercase tracking-wider text-black dark:text-white">
-              Verified Engineering Metrics
+              Engineering Metrics
             </span>
           </div>
 
-          <div className="font-mono text-[11px] text-zinc-600 dark:text-zinc-400">
-            <span className="text-black font-bold bg-[#ffff00] px-1.5 py-0.5 border border-black dark:border-none dark:bg-transparent dark:text-[#00FF66]">LIVE SYSTEM METRICS</span> · UPDATED SEP 2026
+          <div className="font-mono text-[9px] sm:text-[11px] text-zinc-600 dark:text-zinc-400">
+            <span className="text-black font-bold bg-[#ffff00] px-1 py-0.5 border border-black dark:border-none dark:bg-transparent dark:text-[#00FF66]">VERIFIED</span> · 2026
           </div>
         </div>
 
         {/* 4 Telemetry Metrics Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
           {telemetryItems.map((item) => {
             const Icon = item.icon;
             const isHighlighted = activeDiscipline === 'all' || activeDiscipline === item.discipline;
@@ -85,24 +85,24 @@ const TelemetryBar: React.FC<TelemetryBarProps> = ({ activeDiscipline = 'all', o
                 href={item.link}
                 target={item.link.startsWith('http') ? '_blank' : undefined}
                 rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`p-3 bg-white dark:bg-[#0F1626] border-2 transition-all group ${
+                className={`p-2.5 sm:p-3 bg-white dark:bg-[#0F1626] border-2 transition-all group ${
                   isHighlighted
                     ? 'border-black dark:border-[#1E293B] hover:bg-[#ffff00]/15 dark:hover:border-[#00FF66]'
                     : 'opacity-50 border-transparent hover:opacity-100'
                 }`}
               >
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
+                <div className="flex items-center justify-between mb-1 sm:mb-1.5">
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 truncate pr-1">
                     {item.label}
                   </span>
-                  <Icon className={`w-3.5 h-3.5 ${item.color} group-hover:scale-110 transition-transform`} />
+                  <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${item.color} group-hover:scale-110 transition-transform flex-shrink-0`} />
                 </div>
-                <p className="font-mono text-base sm:text-lg font-black text-black dark:text-white leading-tight">
+                <p className="font-mono text-xs sm:text-base md:text-lg font-black text-black dark:text-white leading-tight truncate">
                   {item.value}
                 </p>
-                <div className="mt-1 flex items-center gap-1 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-400 group-hover:text-black dark:group-hover:text-[#00F0FF] transition-colors">
-                  <span>{item.badge}</span>
-                  <span className="text-zinc-500">↗</span>
+                <div className="mt-0.5 sm:mt-1 flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-400 group-hover:text-black dark:group-hover:text-[#00F0FF] transition-colors truncate">
+                  <span className="truncate">{item.badge}</span>
+                  <span className="text-zinc-500 flex-shrink-0">↗</span>
                 </div>
               </a>
             );

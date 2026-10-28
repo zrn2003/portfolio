@@ -195,10 +195,10 @@ const Navigation: React.FC<NavigationProps> = ({ onOpenTerminal }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden bg-white dark:bg-[#16171b]"
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="lg:hidden overflow-hidden bg-transparent"
           >
-            <div className="py-4 mt-2 border-t-2 border-black dark:border-zinc-700 flex flex-col gap-2 px-1">
+            <div className="py-3 mt-2 border-t-2 border-black dark:border-[#1E293B] grid grid-cols-2 gap-1.5 px-0.5">
               {mobileNavLinks.map((link) => {
                 const sectionId = link.href.slice(1);
                 const isActive = activeSection === sectionId;
@@ -210,10 +210,10 @@ const Navigation: React.FC<NavigationProps> = ({ onOpenTerminal }) => {
                       handleNavClick(e, link.href);
                       setIsOpen(false);
                     }}
-                    className={`block px-4 py-2.5 text-xs font-bold font-mono uppercase tracking-widest border-2 transition-all ${
+                    className={`block px-2.5 py-2 text-[11px] font-bold font-mono uppercase tracking-wider text-center border-2 transition-all truncate ${
                       isActive
                         ? 'bg-[#ffff00] dark:bg-[#00FF66] border-black dark:border-[#00FF66] text-black font-black shadow-[2px_2px_0px_rgba(0,0,0,1)]'
-                        : 'bg-transparent border-transparent text-black dark:text-zinc-200 hover:border-black dark:hover:border-zinc-700 hover:bg-[#f0f0f0] dark:hover:bg-zinc-800'
+                        : 'bg-transparent border-transparent text-black dark:text-zinc-200 hover:border-black dark:hover:border-[#1E293B] hover:bg-[#ffff00]/25 dark:hover:bg-[#151f33]'
                     }`}
                   >
                     {link.label}

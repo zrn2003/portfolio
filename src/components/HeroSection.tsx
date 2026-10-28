@@ -91,44 +91,44 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
         className="absolute bottom-10 right-0 w-[30rem] h-[30rem] bg-[#00F0FF]/15 dark:bg-[#00F0FF]/10 rounded-full blur-[140px] -z-10 pointer-events-none"
       />
 
-      <div className="container relative z-10 px-4 sm:px-6 pt-28 pb-16 flex flex-col items-center justify-center">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="container relative z-10 px-4 sm:px-6 pt-20 sm:pt-28 pb-10 sm:pb-16 flex flex-col items-center justify-center">
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center w-full">
           {/* Main content */}
-          <div className="space-y-6 flex flex-col items-center w-full">
+          <div className="space-y-4 sm:space-y-6 flex flex-col items-center w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-5 flex flex-col items-center w-full"
+              className="space-y-3.5 sm:space-y-5 flex flex-col items-center w-full"
             >
               {/* Telemetry pill */}
-              <div className="flex flex-wrap items-center justify-center gap-2 font-mono text-[11px] font-bold">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-white dark:bg-[#0F1626] text-black dark:text-[#00FF66] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase">
+              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-mono text-[10px] sm:text-[11px] font-bold">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 border-2 border-black dark:border-[#1E293B] bg-white dark:bg-[#0F1626] text-black dark:text-[#00FF66] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase">
                   <span className="w-2 h-2 rounded-full bg-[#ffff00] border border-black dark:border-none dark:bg-[#00FF66] animate-pulse" />
-                  SEC-NODE: ACTIVE · PUNE, MH, IN
+                  SEC-NODE: ACTIVE · PUNE
                 </span>
                 <span className="hidden sm:inline-flex px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-[#ffff00] dark:bg-[#131d33] text-black dark:text-[#00F0FF] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono">
                   AES-256 ENCRYPTED
                 </span>
-                <span className="inline-flex px-3 py-1 border-2 border-black dark:border-[#1E293B] bg-black text-white dark:bg-[#1f1638] dark:text-[#A855F7] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono">
-                  CGPA 8.46 / 10.0
+                <span className="inline-flex px-2.5 py-0.5 sm:px-3 sm:py-1 border-2 border-black dark:border-[#1E293B] bg-black text-white dark:bg-[#1f1638] dark:text-[#A855F7] shadow-[2px_2px_0px_rgba(0,0,0,1)] uppercase font-mono">
+                  CGPA 8.46 / 10
                 </span>
               </div>
 
               <h1 className="font-mono text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black dark:text-white leading-[1.05] tracking-tight relative text-center">
                 <span>Zishan</span>
-                <span className="block mt-2 bg-[#ffff00] dark:bg-[#00FF66] text-black border-2 border-black dark:border-none px-4 sm:px-6 inline-block shadow-[4px_4px_0px_rgba(0,0,0,0.15)] sm:shadow-[6px_6px_0px_rgba(0,0,0,0.15)]">Nadaf</span>
+                <span className="block mt-1 sm:mt-2 bg-[#ffff00] dark:bg-[#00FF66] text-black border-2 border-black dark:border-none px-4 sm:px-6 inline-block shadow-[3px_3px_0px_rgba(0,0,0,0.15)] sm:shadow-[6px_6px_0px_rgba(0,0,0,0.15)]">Nadaf</span>
               </h1>
 
               {/* T-SHAPED DISCIPLINE FILTER INTERACTION */}
-              <div className="w-full flex flex-col items-center gap-2 pt-1">
-                <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+              <div className="w-full flex flex-col items-center gap-1.5 sm:gap-2 pt-1">
+                <p className="font-mono text-[9px] sm:text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                   Select discipline focus mode:
                 </p>
-                <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-black/5 dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] shadow-[3px_3px_0px_rgba(0,0,0,1)]">
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 bg-black/5 dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[3px_3px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
                   <button
                     onClick={() => handleSelectDiscipline('all')}
-                    className={`px-3 py-1.5 text-xs font-mono font-bold uppercase transition-all flex items-center gap-1.5 ${
+                    className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase transition-all flex items-center justify-center gap-1.5 ${
                       discipline === 'all'
                         ? 'bg-[#ffff00] dark:bg-[#00FF66] text-black font-black border border-black dark:border-transparent shadow-[2px_2px_0px_rgba(0,0,0,1)]'
                         : 'text-black dark:text-zinc-300 hover:bg-[#ffff00]/30 hover:text-black dark:hover:text-[#00FF66]'
@@ -139,7 +139,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
                   </button>
                   <button
                     onClick={() => handleSelectDiscipline('fullstack')}
-                    className={`px-3 py-1.5 text-xs font-mono font-bold uppercase transition-all flex items-center gap-1.5 ${
+                    className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase transition-all flex items-center justify-center gap-1.5 ${
                       discipline === 'fullstack'
                         ? 'bg-[#ffff00] dark:bg-[#00F0FF] text-black font-black border border-black dark:border-transparent shadow-[2px_2px_0px_rgba(0,0,0,1)]'
                         : 'text-black dark:text-zinc-300 hover:bg-[#ffff00]/30 hover:text-black dark:hover:text-[#00F0FF]'
@@ -150,7 +150,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
                   </button>
                   <button
                     onClick={() => handleSelectDiscipline('aiml')}
-                    className={`px-3 py-1.5 text-xs font-mono font-bold uppercase transition-all flex items-center gap-1.5 ${
+                    className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase transition-all flex items-center justify-center gap-1.5 ${
                       discipline === 'aiml'
                         ? 'bg-[#ffff00] dark:bg-[#00FF66] text-black font-black border border-black dark:border-transparent shadow-[2px_2px_0px_rgba(0,0,0,1)]'
                         : 'text-black dark:text-zinc-300 hover:bg-[#ffff00]/30 hover:text-black dark:hover:text-[#00FF66]'
@@ -161,14 +161,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
                   </button>
                   <button
                     onClick={() => handleSelectDiscipline('cybersecurity')}
-                    className={`px-3 py-1.5 text-xs font-mono font-bold uppercase transition-all flex items-center gap-1.5 ${
+                    className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase transition-all flex items-center justify-center gap-1.5 ${
                       discipline === 'cybersecurity'
                         ? 'bg-[#ffff00] dark:bg-[#A855F7] text-black dark:text-white font-black border border-black dark:border-transparent shadow-[2px_2px_0px_rgba(0,0,0,1)]'
                         : 'text-black dark:text-zinc-300 hover:bg-[#ffff00]/30 hover:text-black dark:hover:text-[#A855F7]'
                     }`}
                   >
                     <Shield className="w-3.5 h-3.5" />
-                    Cybersecurity
+                    CyberSec
                   </button>
                 </div>
               </div>
@@ -183,7 +183,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
                   transition={{ duration: 0.25 }}
                   className="w-full"
                 >
-                  <p className="text-base sm:text-lg text-black dark:text-zinc-200 font-medium max-w-3xl leading-relaxed mt-2 border-2 border-black dark:border-[#1E293B] p-5 sm:p-6 bg-white dark:bg-[#0F1626]/95 shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_30px_rgba(0,0,0,0.8)] text-left sm:text-center mx-auto">
+                  <p className="text-xs sm:text-base md:text-lg text-black dark:text-zinc-200 font-medium max-w-3xl leading-relaxed mt-1 sm:mt-2 border-2 border-black dark:border-[#1E293B] p-3.5 sm:p-6 bg-white dark:bg-[#0F1626]/95 shadow-[3px_3px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_rgba(0,0,0,1)] dark:shadow-[0_0_30px_rgba(0,0,0,0.8)] text-left sm:text-center mx-auto">
                     {currentContent.bio}
                   </p>
                 </motion.div>
@@ -193,33 +193,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
             {/* Dynamic Skills tags based on discipline */}
             <motion.div
               layout
-              className="flex flex-wrap justify-center gap-2 max-w-3xl pt-1"
+              className="flex flex-wrap justify-center gap-1 sm:gap-2 max-w-3xl pt-0.5 sm:pt-1"
             >
               {currentContent.skills.map((skill) => (
                 <motion.span
                   whileHover={{ scale: 1.05, y: -2 }}
                   key={skill}
-                  className="px-3 py-1 text-xs font-bold font-mono uppercase bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] text-black dark:text-zinc-200 shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:bg-[#ffff00] hover:text-black dark:hover:border-[#00FF66] dark:hover:text-[#00FF66] transition-all cursor-default"
+                  className="px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-bold font-mono uppercase bg-white dark:bg-[#0F1626] border border-black sm:border-2 dark:border-[#1E293B] text-black dark:text-zinc-200 shadow-[1px_1px_0px_rgba(0,0,0,1)] sm:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:bg-[#ffff00] hover:text-black dark:hover:border-[#00FF66] dark:hover:text-[#00FF66] transition-all cursor-default"
                 >
                   {skill}
                 </motion.span>
               ))}
             </motion.div>
 
-            {/* CTAs */}
+            {/* CTAs - 2x2 grid on mobile, flex row on sm */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-4 w-full max-w-2xl"
+              className="grid grid-cols-2 sm:flex sm:flex-row justify-center gap-2 sm:gap-3.5 pt-2 sm:pt-4 w-full max-w-2xl"
             >
               {onOpenTerminal && (
                 <button
                   onClick={onOpenTerminal}
-                  className="px-6 py-3.5 bg-[#ffff00] dark:bg-[#00FF66] text-black font-mono font-black uppercase border-2 border-black dark:border-[#00FF66] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-[#00F0FF] dark:hover:text-black dark:hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2 text-center text-sm"
+                  className="px-3 py-2.5 sm:px-6 sm:py-3.5 bg-[#ffff00] dark:bg-[#00FF66] text-black font-mono font-black uppercase border-2 border-black dark:border-[#00FF66] shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white dark:hover:bg-[#00F0FF] dark:hover:text-black dark:hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all inline-flex items-center justify-center gap-1.5 text-center text-xs sm:text-sm"
                 >
-                  <Terminal className="w-4 h-4 text-black" />
-                  &gt;_ Launch CLI Terminal
+                  <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black flex-shrink-0" />
+                  <span className="truncate">&gt;_ Terminal</span>
                 </button>
               )}
               <a
@@ -228,9 +228,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
                   e.preventDefault();
                   smoothScrollTo('projects');
                 }}
-                className="px-6 py-3.5 bg-black dark:bg-[#0F1626] text-white dark:text-[#00F0FF] font-mono font-bold uppercase border-2 border-black dark:border-[#1E293B] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black dark:hover:border-[#00F0FF] dark:hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all text-center text-sm"
+                className="px-3 py-2.5 sm:px-6 sm:py-3.5 bg-black dark:bg-[#0F1626] text-white dark:text-[#00F0FF] font-mono font-bold uppercase border-2 border-black dark:border-[#1E293B] shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black dark:hover:border-[#00F0FF] dark:hover:text-white hover:translate-x-[1px] hover:translate-y-[1px] transition-all text-center text-xs sm:text-sm flex items-center justify-center"
               >
-                Featured Projects
+                Projects
               </a>
               <a
                 href="#contact"
@@ -238,16 +238,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
                   e.preventDefault();
                   smoothScrollTo('contact');
                 }}
-                className="px-6 py-3.5 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black dark:border-[#00FF66] text-black dark:text-black font-mono font-bold uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black dark:hover:bg-[#00F0FF] dark:hover:text-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2 text-center text-sm"
+                className="px-3 py-2.5 sm:px-6 sm:py-3.5 bg-[#ffff00] dark:bg-[#00FF66] border-2 border-black dark:border-[#00FF66] text-black dark:text-black font-mono font-bold uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black dark:hover:bg-[#00F0FF] dark:hover:text-black hover:translate-x-[1px] hover:translate-y-[1px] transition-all inline-flex items-center justify-center gap-1 text-center text-xs sm:text-sm"
               >
-                Get In Touch <ArrowRight className="w-4 h-4" />
+                Contact <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               </a>
               <a
                 href="/Zishan_Nadaf_Resume.pdf"
                 download
-                className="px-5 py-3.5 bg-white dark:bg-[#0c121f] border-2 border-black dark:border-[#1E293B] text-black dark:text-zinc-300 font-mono font-bold uppercase shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] dark:hover:bg-zinc-800 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all inline-flex items-center justify-center gap-2 text-center text-sm"
+                className="px-3 py-2.5 sm:px-5 sm:py-3.5 bg-white dark:bg-[#0c121f] border-2 border-black dark:border-[#1E293B] text-black dark:text-zinc-300 font-mono font-bold uppercase shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] dark:hover:bg-zinc-800 hover:translate-x-[1px] hover:translate-y-[1px] transition-all inline-flex items-center justify-center gap-1 text-center text-xs sm:text-sm"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                 Resume
               </a>
             </motion.div>
@@ -257,31 +257,31 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
-              className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4"
+              className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 pt-2 sm:pt-4"
             >
               <a
                 href="https://github.com/zrn2003"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 px-4 bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] flex items-center gap-2 text-black dark:text-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] dark:hover:border-[#00FF66] dark:hover:text-[#00FF66] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
+                className="h-9 sm:h-11 px-3 sm:px-4 bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] flex items-center gap-1.5 sm:gap-2 text-black dark:text-white shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#f0f0f0] dark:hover:border-[#00FF66] dark:hover:text-[#00FF66] hover:translate-x-[1px] hover:translate-y-[1px] transition-all font-mono font-bold text-[11px] sm:text-xs uppercase"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>GitHub</span>
               </a>
               <a
                 href="https://linkedin.com/in/zishanrn2003"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 px-4 bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] flex items-center gap-2 text-black dark:text-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#0A66C2] hover:text-white dark:hover:border-[#00F0FF] dark:hover:text-[#00F0FF] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
+                className="h-9 sm:h-11 px-3 sm:px-4 bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] flex items-center gap-1.5 sm:gap-2 text-black dark:text-white shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#0A66C2] hover:text-white dark:hover:border-[#00F0FF] dark:hover:text-[#00F0FF] hover:translate-x-[1px] hover:translate-y-[1px] transition-all font-mono font-bold text-[11px] sm:text-xs uppercase"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>LinkedIn</span>
               </a>
               <a
                 href="mailto:zishanrn2003@gmail.com"
-                className="h-11 px-4 bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] flex items-center gap-2 text-black dark:text-white shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#ffff00] hover:text-black dark:hover:border-[#00FF66] dark:hover:text-[#00FF66] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all font-mono font-bold text-xs uppercase"
+                className="h-9 sm:h-11 px-3 sm:px-4 bg-white dark:bg-[#0F1626] border-2 border-black dark:border-[#1E293B] flex items-center gap-1.5 sm:gap-2 text-black dark:text-white shadow-[2px_2px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[#ffff00] hover:text-black dark:hover:border-[#00FF66] dark:hover:text-[#00FF66] hover:translate-x-[1px] hover:translate-y-[1px] transition-all font-mono font-bold text-[11px] sm:text-xs uppercase"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>Email</span>
               </a>
             </motion.div>
@@ -293,7 +293,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="w-full mt-8 z-10"
+          className="w-full mt-6 sm:mt-8 z-10"
         >
           <TelemetryBar activeDiscipline={discipline} />
         </motion.div>
@@ -303,7 +303,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTerminal, activeDiscipl
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          className="mt-16 xl:absolute xl:bottom-10 xl:left-1/2 xl:-translate-x-1/2"
+          className="mt-8 xl:absolute xl:bottom-10 xl:left-1/2 xl:-translate-x-1/2"
         >
           <a
             href="#about"
